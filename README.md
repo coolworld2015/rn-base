@@ -1,4 +1,4 @@
-# RN Mango
+# RN Base
 git clone https://github.com/coolworld2015/rn-base.git
 -------------------------------------------------------------------------------------------------
 git config user.name "coolworld2015"
