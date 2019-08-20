@@ -52,6 +52,9 @@ CONFIG -> android/app ->build.gradle /applicationId + versionName
 NAME -> android\app\src\main\res\values\strings
 -------------------------------------------------------------------------------------------------
 INSTALL ->
+remove ios/build
+remove node_modules
+npm i
 react-native link react-native-gesture-handler
 cd ios && pod install && cd ..
 react-native run-ios

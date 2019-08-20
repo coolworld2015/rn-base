@@ -11,5 +11,3 @@ const App = Platform.select({
 })();
 
 AppRegistry.registerComponent(appName, () => App);
-
-/**/
