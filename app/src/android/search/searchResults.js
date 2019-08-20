@@ -7,7 +7,6 @@ import {
     View,
     TouchableHighlight,
     TouchableWithoutFeedback,
-    //ListView,
     ScrollView,
     ActivityIndicator,
     TextInput,
