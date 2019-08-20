@@ -58,4 +58,5 @@ npm i
 react-native link react-native-gesture-handler
 cd ios && pod install && cd ..
 react-native run-ios
+debug.keystore
 -------------------------------------------------------------------------------------------------
