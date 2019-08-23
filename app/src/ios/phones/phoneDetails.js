@@ -48,10 +48,10 @@ class PhoneDetails extends Component {
             <View style={styles.container}>
                 <View style={styles.header}>
                     <View>
-						<TouchableHighlight
-							onPress={()=> this.goBack()}
-							underlayColor='darkblue'
-						>
+                        <TouchableHighlight
+                          onPress={()=> this.goBack()}
+                          underlayColor='darkblue'
+                        >
                             <View>
                                 <Text style={styles.textSmall}>
                                     Back

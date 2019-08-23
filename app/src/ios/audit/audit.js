@@ -10,9 +10,9 @@ import {
     ScrollView,
     ActivityIndicator,
     TextInput,
-	Image,
-	Dimensions,
-	RefreshControl
+    Image,
+    Dimensions,
+    RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -32,8 +32,8 @@ class Audit extends Component {
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-			searchQuery: '',
-			refreshing: false
+            searchQuery: '',
+            refreshing: false
         };
     }
 
@@ -45,12 +45,12 @@ class Audit extends Component {
     }
 
     getItems() {
-		this.setState({
-			serverError: false,
+		    this.setState({
+			      serverError: false,
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-			searchQuery: ''
+			      searchQuery: ''
         });
 
         fetch(appConfig.url + 'api/audit/get', {
@@ -182,22 +182,22 @@ class Audit extends Component {
             loader = <View style={styles.loader}>
                 <ActivityIndicator
                     size="large"
-					color="darkblue"
+					          color="darkblue"
                     animating={true}
                 />
             </View>;
         }
 
-		if (this.state.searchQuery.length > 0) {
-			image = <Image
-				source={require('../../../img/cancel.png')}
-				style={{
-					height: 20,
-					width: 20,
-					marginTop: 10
-				}}
-			/>;
-		}
+        if (this.state.searchQuery.length > 0) {
+            image = <Image
+            source={require('../../../img/cancel.png')}
+            style={{
+                height: 20,
+                width: 20,
+                marginTop: 10
+            }}
+          />;
+        }
 
         return (
             <View style={styles.container}>
@@ -224,7 +224,7 @@ class Audit extends Component {
                         <TouchableWithoutFeedback>
                             <View>
                                 <Text style={styles.textSmall}>
-									New
+									                  New
                                 </Text>
                             </View>
                         </TouchableWithoutFeedback>
@@ -232,61 +232,61 @@ class Audit extends Component {
                 </View>
 
                 <View style={styles.iconForm}>
-					<View>
-						<TextInput
-							underlineColorAndroid='rgba(0,0,0,0)'
-							onChangeText={this.onChangeText.bind(this)}
-							style={{
-								height: 45,
-								padding: 5,
-								backgroundColor: 'white',
-								borderWidth: 3,
-								borderColor: 'white',
-								borderRadius: 0,
-								width: Dimensions.get('window').width * .90,
-							}}
-							value={this.state.searchQuery}
-							placeholder="Search here">
-						</TextInput>
-					</View>
-					<View style={{
-						height: 45,
-						backgroundColor: 'white',
-						borderWidth: 3,
-						borderColor: 'white',
-						marginLeft: -10,
-						paddingLeft: 5,
-						width: Dimensions.get('window').width * .10,
-					}}>
-						<TouchableWithoutFeedback
-							onPress={() => this.clearSearchQuery()}
-						>
-							<View>
-								{image}
-							</View>
-						</TouchableWithoutFeedback>
-					</View>
+                    <View>
+                        <TextInput
+                          underlineColorAndroid='rgba(0,0,0,0)'
+                          onChangeText={this.onChangeText.bind(this)}
+                          style={{
+                              height: 45,
+                              padding: 5,
+                              backgroundColor: 'white',
+                              borderWidth: 3,
+                              borderColor: 'white',
+                              borderRadius: 0,
+                              width: Dimensions.get('window').width * .90,
+                          }}
+                          value={this.state.searchQuery}
+                          placeholder="Search here">
+                        </TextInput>
+                    </View>
+                  <View style={{
+                      height: 45,
+                      backgroundColor: 'white',
+                      borderWidth: 3,
+                      borderColor: 'white',
+                      marginLeft: -10,
+                      paddingLeft: 5,
+                      width: Dimensions.get('window').width * .10,
+                  }}>
+                <TouchableWithoutFeedback
+                  onPress={() => this.clearSearchQuery()}
+                >
+                      <View>
+                        {image}
+                      </View>
+						    </TouchableWithoutFeedback>
+					      </View>
                 </View>
 
                 {errorCtrl}
 
                 {loader}
 
-				<ScrollView onScroll={this.refreshData.bind(this)} scrollEventThrottle={16}
-					refreshControl={
-						<RefreshControl
-							enabled={true}
-							refreshing={this.state.refreshing}
-							onRefresh={this.refreshDataAndroid.bind(this)}
-						/>
-					}
-				>
-					<ListView
-						enableEmptySections={true}
-						dataSource={this.state.dataSource}
-						renderRow={this.renderRow.bind(this)}
-					/>
-				</ScrollView>
+                <ScrollView onScroll={this.refreshData.bind(this)} scrollEventThrottle={16}
+                      refreshControl={
+                            <RefreshControl
+                                  enabled={true}
+                                  refreshing={this.state.refreshing}
+                                  onRefresh={this.refreshDataAndroid.bind(this)}
+                            />
+                      }
+                >
+                  <ListView
+                        enableEmptySections={true}
+                        dataSource={this.state.dataSource}
+                        renderRow={this.renderRow.bind(this)}
+                  />
+                </ScrollView>
 
                 <View>
                     <Text style={styles.countFooter}>
@@ -304,12 +304,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'white'
     },
-	iconForm: {
-		flexDirection: 'row',
-		//borderColor: 'lightgray',
-		borderColor: 'darkblue',
-		borderWidth: 3
-	},
+    iconForm: {
+        flexDirection: 'row',
+        //borderColor: 'lightgray',
+        borderColor: 'darkblue',
+        borderWidth: 3
+	  },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',

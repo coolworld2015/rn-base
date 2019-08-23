@@ -11,9 +11,9 @@ import {
     ActivityIndicator,
     TextInput,
     BackHandler,
-	Image,
-	Dimensions,
-	RefreshControl
+    Image,
+    Dimensions,
+    RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -46,26 +46,22 @@ class SearchResults extends Component {
                 resultsCount: 0,
                 recordsCount: 15,
                 positionY: 0,
-				searchQuery: '',
-				refreshing: false
+                searchQuery: '',
+                refreshing: false,
+                width: Dimensions.get('window').width
             };
         }
-    }
 
-    componentDidMount() {
-		this.setState({
-            width: Dimensions.get('window').width
-        });
-        this.getItems();
+      this.getItems();
     }
 
     getItems() {
-		this.setState({
-			serverError: false,
+		    this.setState({
+			      serverError: false,
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-			searchQuery: ''
+			      searchQuery: ''
         });
 
         let webUrl;
@@ -90,7 +86,7 @@ class SearchResults extends Component {
                     resultsCount: responseData.length,
                     responseData: responseData.sort(this.sort),
                     filteredItems: responseData.sort(this.sort),
-					refreshing: false
+					          refreshing: false
                 });
 
             })
@@ -225,7 +221,7 @@ class SearchResults extends Component {
             loader = <View style={styles.loader}>
                 <ActivityIndicator
                     size="large"
-					color="darkblue"
+					          color="darkblue"
                     animating={true}
                 />
             </View>;
@@ -246,10 +242,10 @@ class SearchResults extends Component {
             <View style={styles.container}>
                 <View style={styles.header}>
                     <View>
-						<TouchableHighlight
-							onPress={()=> this.goBack()}
-							underlayColor='darkblue'
-						>
+                        <TouchableHighlight
+                          onPress={()=> this.goBack()}
+                          underlayColor='darkblue'
+                        >
                             <View>
                                 <Text style={styles.textSmall}>
                                     Back
@@ -309,8 +305,8 @@ class SearchResults extends Component {
 							<View>
 								{image}
 							</View>
-						</TouchableWithoutFeedback>
-					</View>
+						    </TouchableWithoutFeedback>
+					      </View>
                 </View>
 
                 {errorCtrl}

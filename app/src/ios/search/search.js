@@ -22,14 +22,9 @@ class Search extends Component {
             eventSwitchTitle: false,
             eventSwitchBase: true,
             textSwitchBase: 'Search by name',
-            bugANDROID: ''
-        }
-    }
-
-    componentDidMount() {
-        this.setState({
+            bugANDROID: '',
             width: Dimensions.get('window').width
-        });
+        }
     }
 
     clearSearch() {
@@ -106,10 +101,10 @@ class Search extends Component {
                         </TouchableWithoutFeedback>
                     </View>
                     <View>
-						<TouchableHighlight
-							onPress={()=> this.clearSearch()}
-							underlayColor='darkblue'
-						>
+                        <TouchableHighlight
+                          onPress={()=> this.clearSearch()}
+                          underlayColor='darkblue'
+                        >
                             <View>
                                 <Text style={styles.textSmall}>
                                     Clear
@@ -156,7 +151,7 @@ class Search extends Component {
                                     color: 'darkblue',
                                     paddingTop: 0
                                 }}
-								placeholderTextColor="darkblue"
+								                placeholderTextColor="darkblue"
                                 placeholder="Search here">
                             </TextInput>
                         </View>
