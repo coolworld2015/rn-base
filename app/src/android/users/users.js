@@ -10,9 +10,9 @@ import {
     ScrollView,
     ActivityIndicator,
     TextInput,
-	Image,
-	Dimensions,
-	RefreshControl
+    Image,
+    Dimensions,
+    RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -32,15 +32,11 @@ class Users extends Component {
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-			searchQuery: '',
-			refreshing: false
-        };
-    }
-
-    componentDidMount() {
-		this.setState({
+            searchQuery: '',
+            refreshing: false,
             width: Dimensions.get('window').width
-        });
+        };
+
         this.getItems();
     }
 
@@ -58,12 +54,12 @@ class Users extends Component {
     }
 
     getItems() {
-		this.setState({
-			serverError: false,
+		    this.setState({
+            serverError: false,
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-			searchQuery: ''
+			      searchQuery: ''
         });
 
         fetch(appConfig.url + 'api/users/get', {
@@ -81,7 +77,7 @@ class Users extends Component {
                     resultsCount: responseData.length,
                     responseData: responseData,
                     filteredItems: responseData,
-					refreshing: false
+					          refreshing: false
                 });
             })
             .catch((error) => {
@@ -214,7 +210,7 @@ class Users extends Component {
             loader = <View style={styles.loader}>
                 <ActivityIndicator
                     size="large"
-					color="darkblue"
+					          color="darkblue"
                     animating={true}
                 />
             </View>;
@@ -253,10 +249,10 @@ class Users extends Component {
                         </TouchableWithoutFeedback>
                     </View>
                     <View>
-						<TouchableHighlight
-							onPress={()=> this.addItem()}
-							underlayColor='darkblue'
-						>
+                        <TouchableHighlight
+                          onPress={()=> this.addItem()}
+                          underlayColor='darkblue'
+                        >
                             <View>
                                 <Text style={styles.textSmall}>
                                     New
@@ -278,20 +274,20 @@ class Users extends Component {
 								borderWidth: 3,
 								borderColor: 'white',
 								borderRadius: 0,
-								width: Dimensions.get('window').width * .90,
+								width: this.state.width * .90,
 							}}
 							value={this.state.searchQuery}
 							placeholder="Search here">
 						</TextInput>
 					</View>
 					<View style={{
-						height: 45,
-						backgroundColor: 'white',
-						borderWidth: 3,
-						borderColor: 'white',
-						marginLeft: -10,
-						paddingLeft: 5,
-						width: Dimensions.get('window').width * .10,
+              height: 45,
+              backgroundColor: 'white',
+              borderWidth: 3,
+              borderColor: 'white',
+              marginLeft: -10,
+              paddingLeft: 5,
+              width: this.state.width * .10,
 					}}>
 						<TouchableWithoutFeedback
 							onPress={() => this.clearSearchQuery()}

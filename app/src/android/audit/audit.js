@@ -32,25 +32,21 @@ class Audit extends Component {
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-			searchQuery: '',
-			refreshing: false
-        };
-    }
-
-    componentDidMount() {
-		this.setState({
+            searchQuery: '',
+            refreshing: false,
             width: Dimensions.get('window').width
-        });
+        };
+
         this.getItems();
     }
 
     getItems() {
-		this.setState({
-			serverError: false,
+		    this.setState({
+            serverError: false,
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-			searchQuery: ''
+            searchQuery: ''
         });
 
         fetch(appConfig.url + 'api/audit/get', {
@@ -184,7 +180,7 @@ class Audit extends Component {
             loader = <View style={styles.loader}>
                 <ActivityIndicator
                     size="large"
-					color="darkblue"
+					          color="darkblue"
                     animating={true}
                 />
             </View>;
@@ -226,7 +222,7 @@ class Audit extends Component {
                         <TouchableWithoutFeedback>
                             <View>
                                 <Text style={styles.textSmall}>
-									New
+									                  New
                                 </Text>
                             </View>
                         </TouchableWithoutFeedback>
@@ -239,26 +235,26 @@ class Audit extends Component {
 							underlineColorAndroid='rgba(0,0,0,0)'
 							onChangeText={this.onChangeText.bind(this)}
 							style={{
-								height: 45,
-								padding: 5,
-								backgroundColor: 'white',
-								borderWidth: 3,
-								borderColor: 'white',
-								borderRadius: 0,
-								width: Dimensions.get('window').width * .90,
+                  height: 45,
+                  padding: 5,
+                  backgroundColor: 'white',
+                  borderWidth: 3,
+                  borderColor: 'white',
+                  borderRadius: 0,
+                  width: this.state.width * .90,
 							}}
 							value={this.state.searchQuery}
 							placeholder="Search here">
 						</TextInput>
 					</View>
 					<View style={{
-						height: 45,
-						backgroundColor: 'white',
-						borderWidth: 3,
-						borderColor: 'white',
-						marginLeft: -10,
-						paddingLeft: 5,
-						width: Dimensions.get('window').width * .10,
+              height: 45,
+              backgroundColor: 'white',
+              borderWidth: 3,
+              borderColor: 'white',
+              marginLeft: -10,
+              paddingLeft: 5,
+              width: this.state.width * .10,
 					}}>
 						<TouchableWithoutFeedback
 							onPress={() => this.clearSearchQuery()}

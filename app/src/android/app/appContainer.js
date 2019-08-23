@@ -6,14 +6,6 @@ import {
     Text,
     View,
     TouchableHighlight,
-    TouchableWithoutFeedback,
-    ListView,
-    ScrollView,
-    ActivityIndicator,
-    TextInput,
-    Image,
-    Dimensions,
-    RefreshControl,
     DrawerLayoutAndroid
 } from 'react-native';
 

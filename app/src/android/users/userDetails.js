@@ -101,7 +101,7 @@ class UserDetails extends Component {
                 {
                     text: 'OK', onPress: () => {
                     this.deleteItem();
-                }
+                    }
                 },
             ]
         );
@@ -160,17 +160,17 @@ class UserDetails extends Component {
                 Something went wrong.
             </Text>;
         }
-		
+
         if (this.state.showProgress) {
             loader = <View style={styles.loader}>
                 <ActivityIndicator
                     size="large"
-					color="darkblue"
+					          color="darkblue"
                     animating={true}
                 />
             </View>;
         }
-		
+
         if (this.state.invalidValue) {
             validCtrl = <Text style={styles.error}>
                 Value required - please provide.
@@ -181,10 +181,10 @@ class UserDetails extends Component {
             <View style={styles.container}>
                 <View style={styles.header}>
                     <View>
-						<TouchableHighlight
-							onPress={()=> this.goBack()}
-							underlayColor='darkblue'
-						>
+                        <TouchableHighlight
+                          onPress={()=> this.goBack()}
+                          underlayColor='darkblue'
+                        >
                             <View>
                                 <Text style={styles.textSmall}>
                                     Back
@@ -202,10 +202,10 @@ class UserDetails extends Component {
                         </TouchableWithoutFeedback>
                     </View>
                     <View>
-						<TouchableHighlight
-							onPress={()=> this.deleteItemDialog()}
-							underlayColor='darkblue'
-						>
+                        <TouchableHighlight
+                          onPress={()=> this.deleteItemDialog()}
+                          underlayColor='darkblue'
+                        >
                             <View>
                                 <Text style={styles.textSmall}>
                                     Delete
@@ -262,8 +262,8 @@ class UserDetails extends Component {
                         </TouchableHighlight>
 
                         {errorCtrl}
-						
-						{loader}
+
+						            {loader}
 
                         <Text>{this.state.bugANDROID}</Text>
                     </View>

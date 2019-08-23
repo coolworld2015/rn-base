@@ -11,9 +11,9 @@ import {
     ActivityIndicator,
     TextInput,
     BackHandler,
-	Image,
-	Dimensions,
-	RefreshControl
+    Image,
+    Dimensions,
+    RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -46,26 +46,22 @@ class SearchResults extends Component {
                 resultsCount: 0,
                 recordsCount: 15,
                 positionY: 0,
-				searchQuery: '',
-				refreshing: false
+                searchQuery: '',
+                refreshing: false,
+                width: Dimensions.get('window').width
             };
+
+            this.getItems();
         }
     }
 
-    componentDidMount() {
-		this.setState({
-            width: Dimensions.get('window').width
-        });
-        this.getItems();
-    }
-
     getItems() {
-		this.setState({
-			serverError: false,
+		    this.setState({
+            serverError: false,
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-			searchQuery: ''
+            searchQuery: ''
         });
 
         let webUrl;

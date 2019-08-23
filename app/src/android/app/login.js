@@ -21,14 +21,9 @@ class Login extends Component {
             showProgress: false,
             username: '1',
             password: '1',
-            bugANDROID: ''
-        }
-    }
-
-    componentDidMount() {
-        this.setState({
+            bugANDROID: '',
             width: Dimensions.get('window').width
-        });
+        }
     }
 
     onLogin() {
@@ -109,8 +104,8 @@ class Login extends Component {
                         </Text>
                     </View>
 
-					<Image style={styles.logo}
-                           source={require('../../../img/logo.jpg')}
+					          <Image style={styles.logo}
+                       source={require('../../../img/logo.jpg')}
                     />
 
                     <TextInput
@@ -121,7 +116,7 @@ class Login extends Component {
                         })}
                         style={{
                             height: 50,
-                            width: Dimensions.get('window').width * .9,
+                            width: this.state.width * .9,
                             marginTop: 10,
                             padding: 4,
                             fontSize: 18,
@@ -144,7 +139,7 @@ class Login extends Component {
                         })}
                         style={{
                             height: 50,
-                            width: Dimensions.get('window').width * .9,
+                            width: this.state.width * .9,
                             marginTop: 10,
                             padding: 4,
                             fontSize: 18,

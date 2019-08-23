@@ -94,25 +94,25 @@ class UserAdd extends Component {
                 Value required - please provide.
             </Text>;
         }
-		
+
         if (this.state.showProgress) {
             loader = <View style={styles.loader}>
                 <ActivityIndicator
                     size="large"
-					color="darkblue"
+                    color="darkblue"
                     animating={true}
                 />
             </View>;
         }
-		
+
         return (
             <View style={styles.container}>
                 <View style={styles.header}>
                     <View>
-						<TouchableHighlight
-							onPress={()=> this.goBack()}
-							underlayColor='darkblue'
-						>
+                        <TouchableHighlight
+                          onPress={()=> this.goBack()}
+                          underlayColor='darkblue'
+                        >
                             <View>
                                 <Text style={styles.textSmall}>
                                     Back
@@ -186,8 +186,8 @@ class UserAdd extends Component {
                         </TouchableHighlight>
 
                         {errorCtrl}
-						
-						{loader}
+
+						            {loader}
 
                         <Text>{this.state.bugANDROID}</Text>
                     </View>

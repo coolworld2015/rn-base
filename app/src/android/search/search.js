@@ -22,14 +22,9 @@ class Search extends Component {
             eventSwitchTitle: false,
             eventSwitchBase: false,
             textSwitchBase: 'Search by phone',
-            bugANDROID: ''
-        }
-    }
-
-    componentDidMount() {
-        this.setState({
+            bugANDROID: '',
             width: Dimensions.get('window').width
-        });
+        }
     }
 
     clearSearch() {
@@ -157,7 +152,7 @@ class Search extends Component {
                                     color: 'darkblue',
                                     paddingTop: 6
                                 }}
-								placeholderTextColor="darkblue"
+								                placeholderTextColor="darkblue"
                                 placeholder="Search here">
                             </TextInput>
                         </View>

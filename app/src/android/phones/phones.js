@@ -32,15 +32,10 @@ class Phones extends Component {
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-			searchQuery: '',
-			refreshing: false
-        };
-    }
-
-    componentDidMount() {
-		this.setState({
+            searchQuery: '',
+            refreshing: false,
             width: Dimensions.get('window').width
-        });
+        };
         this.getItems();
     }
 
