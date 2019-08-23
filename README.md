@@ -39,9 +39,9 @@ ERROR -> cd android/ && ./gradlew clean
 -------------------------------------------------------------------------------------------------
 MAKE DIR--> android/app/src/main/assets
 -------------------------------------------------------------------------------------------------
-APK -> react-native bundle --dev false --platform android --entry-file index.js --bundle-output ./android/app/build/intermediates/assets/debug/index.android.bundle --assets-dest ./android/app/build/intermediates/res/merged/debug
+APK -> react-native bundle --dev false --platform android --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/ 
 -------------------------------------------------------------------------------------------------
-APK -> cd android && ./gradlew assembleDebug
+APK -> cd android && ./gradlew assembleDebug && cd ..
 -------------------------------------------------------------------------------------------------
 RELEASE -> cd android -> assembleRelease -> \android\app\build\outputs\apk
 -------------------------------------------------------------------------------------------------
@@ -53,6 +53,7 @@ NAME -> android\app\src\main\res\values\strings
 -------------------------------------------------------------------------------------------------
 INSTALL ->
 remove ios/build
+remove android/app/build
 remove node_modules
 npm i
 react-native link react-native-gesture-handler
