@@ -20,10 +20,9 @@ class Search extends Component {
     this.state = {
       showProgress: false,
       eventSwitchTitle: false,
-      eventSwitchBase: false,
-      textSwitchBase: 'Search by phone',
-      bugANDROID: '',
-      width: Dimensions.get('window').width,
+      eventSwitchBase: true,
+      textSwitchBase: 'Search by name',
+      bugANDROID: ''
     };
   }
 
@@ -145,13 +144,7 @@ class Search extends Component {
                   invalidValue: false,
                 })}
                 value={this.state.searchQuery}
-                style={{
-                  height: 50,
-                  width: Dimensions.get('window').width * .94,
-                  fontSize: 18,
-                  color: 'darkblue',
-                  paddingTop: 6,
-                }}
+                style={styles.search}
                 placeholderTextColor="darkblue"
                 placeholder="Search here">
               </TextInput>
@@ -185,6 +178,13 @@ const styles = StyleSheet.create({
     backgroundColor: 'darkblue',
     borderWidth: 0,
     borderColor: 'whitesmoke',
+  },
+  search: {
+    height: 50,
+    width: Dimensions.get('window').width * .94,
+    fontSize: 18,
+    color: 'darkblue',
+    paddingTop: 6
   },
   textSmall: {
     fontSize: 16,
