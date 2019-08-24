@@ -53,7 +53,7 @@ class Phones extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': appConfig.access_token,
+        'Authorization': appConfig.access_token
       }
     })
       .then((response) => response.json())
@@ -64,19 +64,19 @@ class Phones extends Component {
           resultsCount: responseData.length,
           responseData: responseData,
           filteredItems: responseData,
-          refreshing: false,
+          refreshing: false
         });
       })
       .catch((error) => {
         this.setState({
-          serverError: true,
+          serverError: true
         });
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   sort(a, b) {
@@ -93,13 +93,13 @@ class Phones extends Component {
   showDetails(rowData) {
     this.props.navigator.push({
       index: 1,
-      data: rowData,
+      data: rowData
     });
   }
 
   goSearch() {
     this.props.navigator.push({
-      index: 2,
+      index: 2
     });
   }
 
@@ -151,14 +151,14 @@ class Phones extends Component {
       dataSource: this.state.dataSource.cloneWithRows(items),
       resultsCount: items.length,
       filteredItems: items,
-      searchQuery: text,
+      searchQuery: text
     })
   }
 
   refreshDataAndroid() {
     this.setState({
       showProgress: true,
-      resultsCount: 0,
+      resultsCount: 0
     });
 
     this.getItems();
@@ -175,7 +175,7 @@ class Phones extends Component {
       filteredItems: this.state.responseData,
       positionY: 0,
       recordsCount: 15,
-      searchQuery: '',
+      searchQuery: ''
     });
   }
 
@@ -208,7 +208,7 @@ class Phones extends Component {
         style={{
           height: 20,
           width: 20,
-          marginTop: 10,
+          marginTop: 10
         }}
       />
     }
@@ -395,7 +395,7 @@ const styles = StyleSheet.create({
   menu: {
     alignItems: 'center',
     margin: 14,
-    marginTop: 16,
+    marginTop: 16
   }
 });
 

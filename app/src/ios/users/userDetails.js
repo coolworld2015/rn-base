@@ -10,7 +10,7 @@ import {
   ActivityIndicator,
   TextInput,
   TouchableWithoutFeedback,
-  Alert,
+  Alert
 } from 'react-native';
 
 class UserDetails extends Component {
@@ -22,7 +22,7 @@ class UserDetails extends Component {
       name: appConfig.users.item.name,
       pass: appConfig.users.item.pass,
       description: appConfig.users.item.description,
-      showProgress: false,
+      showProgress: false
     };
   }
 
@@ -46,34 +46,33 @@ class UserDetails extends Component {
         name: this.state.name,
         pass: this.state.pass,
         description: this.state.description,
-        authorization: appConfig.access_token,
+        authorization: appConfig.access_token
       }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
         if (responseData.pass) {
           this.props.navigation.navigate('Users', {refresh: true});
-
         } else {
           this.setState({
-            badCredentials: true,
-          });
+            badCredentials: true
+          })
         }
       })
       .catch((error) => {
         this.setState({
-          serverError: true,
-        });
+          serverError: true
+        })
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   deleteItemDialog() {
@@ -94,19 +93,19 @@ class UserDetails extends Component {
   deleteItem() {
     this.setState({
       showProgress: true,
-      bugANDROID: ' ',
+      bugANDROID: ' '
     });
 
     fetch(appConfig.url + 'api/users/delete', {
       method: 'post',
       body: JSON.stringify({
         id: this.state.id,
-        authorization: appConfig.access_token,
+        authorization: appConfig.access_token
       }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -114,21 +113,20 @@ class UserDetails extends Component {
           this.props.navigation.navigate('Users', {refresh: true});
         } else {
           this.setState({
-            badCredentials: true,
+            badCredentials: true
           });
         }
       })
       .catch((error) => {
         this.setState({
-          serverError: true,
-        });
+          serverError: true
+        })
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
-
+          showProgress: false
+        })
+      })
   }
 
   goBack() {
@@ -141,13 +139,13 @@ class UserDetails extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.invalidValue) {
       validCtrl = <Text style={styles.error}>
         Value required - please provide.
-      </Text>;
+      </Text>
     }
 
     return (
@@ -190,13 +188,13 @@ class UserDetails extends Component {
           <View style={{
             flex: 1,
             padding: 10,
-            justifyContent: 'flex-start',
+            justifyContent: 'flex-start'
           }}>
 
             <TextInput
               onChangeText={(text) => this.setState({
                 name: text,
-                invalidValue: false,
+                invalidValue: false
               })}
               style={styles.formInputBold}
               value={this.state.name}
@@ -206,7 +204,7 @@ class UserDetails extends Component {
             <TextInput
               onChangeText={(text) => this.setState({
                 pass: text,
-                invalidValue: false,
+                invalidValue: false
               })}
               style={styles.loginInput}
               value={this.state.pass}
@@ -217,7 +215,7 @@ class UserDetails extends Component {
               multiline={true}
               onChangeText={(text) => this.setState({
                 description: text,
-                invalidValue: false,
+                invalidValue: false
               })}
               style={styles.formInputArea}
               value={this.state.description}
@@ -242,7 +240,7 @@ class UserDetails extends Component {
           </View>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
 
@@ -326,8 +324,8 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     paddingTop: 10,
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });
 
 export default UserDetails;

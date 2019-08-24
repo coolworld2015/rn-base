@@ -46,7 +46,7 @@ class Search extends Component {
       data: {
         searchQuery: this.state.searchQuery,
         searchType: this.state.textSwitchBase,
-      },
+      }
     });
   }
 
@@ -72,7 +72,7 @@ class Search extends Component {
     if (this.state.invalidValue) {
       validCtrl = <Text style={styles.error}>
         Value required - please provide.
-      </Text>;
+      </Text>
     }
 
     return (
@@ -126,7 +126,7 @@ class Search extends Component {
                     this.toggleTypeChange();
                     this.setState({
                       eventSwitchBase: value,
-                    });
+                    })
                   }}
                   value={this.state.eventSwitchBase}
                 />
@@ -138,7 +138,7 @@ class Search extends Component {
                 underlineColorAndroid='rgba(0,0,0,0)'
                 onChangeText={(text) => this.setState({
                   searchQuery: text,
-                  invalidValue: false,
+                  invalidValue: false
                 })}
                 value={this.state.searchQuery}
                 style={styles.search}
@@ -159,7 +159,7 @@ class Search extends Component {
           </View>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
 
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
     color: 'red',
     paddingTop: 10,
     textAlign: 'center',
-  },
+  }
 });
 
 export default Search;

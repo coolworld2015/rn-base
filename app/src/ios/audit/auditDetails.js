@@ -35,7 +35,7 @@ class AuditDetails extends Component {
         date: appConfig.audit.item.date,
         ip: ip[3],
         description: appConfig.audit.item.description,
-        showProgress: false,
+        showProgress: false
       };
     }
   }
@@ -136,7 +136,7 @@ class AuditDetails extends Component {
           </View>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
 
@@ -220,7 +220,7 @@ const styles = StyleSheet.create({
     color: 'red',
     paddingTop: 10,
     textAlign: 'center',
-  },
+  }
 });
 
 export default AuditDetails;

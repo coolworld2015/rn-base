@@ -136,7 +136,7 @@ class AuditDetails extends Component {
           </View>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
 
@@ -219,8 +219,8 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     paddingTop: 10,
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });
 
 export default AuditDetails;

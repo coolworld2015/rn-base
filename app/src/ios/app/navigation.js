@@ -19,18 +19,18 @@ const PhonesTab = createStackNavigator({
   Phones,
   PhoneDetails,
   Search,
-  SearchResults,
+  SearchResults
 });
 
 const UsersTab = createStackNavigator({
   Users,
   UserDetails,
-  UserAdd,
+  UserAdd
 });
 
 const AuditTab = createStackNavigator({
   Audit,
-  AuditDetails,
+  AuditDetails
 });
 
 class Quit extends React.Component {
@@ -44,7 +44,7 @@ const TabNavigator = createBottomTabNavigator({
     Phones: PhonesTab,
     Users: UsersTab,
     Audit: AuditTab,
-    Quit: Quit,
+    Quit: Quit
   },
   {
     defaultNavigationOptions: ({navigation}) => ({
@@ -60,7 +60,7 @@ const TabNavigator = createBottomTabNavigator({
               width: 15,
               margin: 0,
             }}
-          />;
+          />
         }
         if (routeName === 'Users') {
           iconName = <Image
@@ -70,7 +70,7 @@ const TabNavigator = createBottomTabNavigator({
               width: 20,
               margin: 0,
             }}
-          />;
+          />
         }
         if (routeName === 'Audit') {
           iconName = <Image
@@ -80,7 +80,7 @@ const TabNavigator = createBottomTabNavigator({
               width: 20,
               margin: 0,
             }}
-          />;
+          />
         }
         if (routeName === 'Quit') {
           iconName = <Image
@@ -90,12 +90,12 @@ const TabNavigator = createBottomTabNavigator({
               width: 20,
               margin: 0,
             }}
-          />;
+          />
         }
 
         return iconName;
-      },
-    }),
-  });
+      }
+    })
+  })
 
 export default createAppContainer(TabNavigator);

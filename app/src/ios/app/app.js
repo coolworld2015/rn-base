@@ -12,7 +12,7 @@ class App extends Component {
     super(props);
 
     this.state = {
-      isLoggedIn: false,
+      isLoggedIn: false
     };
 
     window.appConfig = {
@@ -30,7 +30,7 @@ class App extends Component {
       audit: {
         items: [],
         item: {},
-      },
+      }
     };
   }
 
@@ -38,11 +38,11 @@ class App extends Component {
     if (this.state.isLoggedIn) {
       return (
         <AppContainer onLogOut={this.onLogOut.bind(this)}/>
-      );
+      )
     } else {
       return (
         <Login onLogin={this.onLogin.bind(this)}/>
-      );
+      )
     }
   }
 

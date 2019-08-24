@@ -13,7 +13,7 @@ import {
   BackHandler,
   Image,
   Dimensions,
-  RefreshControl,
+  RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -47,8 +47,7 @@ class SearchResults extends Component {
         recordsCount: 15,
         positionY: 0,
         searchQuery: '',
-        refreshing: false,
-        width: Dimensions.get('window').width,
+        refreshing: false
       };
     }
 
@@ -61,7 +60,7 @@ class SearchResults extends Component {
       resultsCount: 0,
       recordsCount: 15,
       positionY: 0,
-      searchQuery: '',
+      searchQuery: ''
     });
 
     let webUrl;
@@ -76,8 +75,8 @@ class SearchResults extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': appConfig.access_token,
-      },
+        'Authorization': appConfig.access_token
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -92,14 +91,14 @@ class SearchResults extends Component {
       })
       .catch((error) => {
         this.setState({
-          serverError: true,
-        });
+          serverError: true
+        })
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   sort(a, b) {
@@ -121,15 +120,14 @@ class SearchResults extends Component {
     return (
       <TouchableHighlight
         onPress={() => this.showDetails(rowData)}
-        underlayColor='#ddd'
-      >
+        underlayColor='#ddd'>
         <View style={styles.row}>
           <Text style={styles.rowText}>
             {rowData.name} - {rowData.phone}
           </Text>
         </View>
       </TouchableHighlight>
-    );
+    )
   }
 
   refreshData(event) {
@@ -143,7 +141,7 @@ class SearchResults extends Component {
         resultsCount: 0,
         recordsCount: 15,
         positionY: 0,
-        searchQuery: '',
+        searchQuery: ''
       });
 
       setTimeout(() => {
@@ -204,7 +202,7 @@ class SearchResults extends Component {
       filteredItems: this.state.responseData,
       positionY: 0,
       recordsCount: 15,
-      searchQuery: '',
+      searchQuery: ''
     });
   }
 
@@ -214,7 +212,7 @@ class SearchResults extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.showProgress) {
@@ -224,7 +222,7 @@ class SearchResults extends Component {
           color="darkblue"
           animating={true}
         />
-      </View>;
+      </View>
     }
 
     if (this.state.searchQuery.length > 0) {
@@ -233,9 +231,9 @@ class SearchResults extends Component {
         style={{
           height: 20,
           width: 20,
-          marginTop: 10,
+          marginTop: 10
         }}
-      />;
+      />
     }
 
     return (
@@ -244,8 +242,7 @@ class SearchResults extends Component {
           <View>
             <TouchableHighlight
               onPress={() => this.goBack()}
-              underlayColor='darkblue'
-            >
+              underlayColor='darkblue'>
               <View>
                 <Text style={styles.textSmall}>
                   Back
@@ -319,7 +316,7 @@ class SearchResults extends Component {
           </Text>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -414,7 +411,7 @@ const styles = StyleSheet.create({
     color: 'red',
     paddingTop: 10,
     textAlign: 'center',
-  },
+  }
 });
 
 export default SearchResults;

@@ -72,15 +72,14 @@ class AppContainer extends Component {
         ref={'DRAWER_REF'}
         drawerWidth={200}
         drawerPosition={DrawerLayoutAndroid.positions.Left}
-        renderNavigationView={() => navigationView}
-      >
+        renderNavigationView={() => navigationView}>
         <ScrollableTabView
           renderTabBar={() => <DefaultTabBar
             activeTextColor='darkblue'
             inactiveTextColor='darkblue'
             underlineStyle={{backgroundColor: 'darkblue'}}
-            backgroundColor='white'/>}
-        >
+            backgroundColor='white'/>}>
+
           <PhonesTab tabLabel="Phones"/>
           <UsersTab tabLabel="Users"/>
           <AuditTab tabLabel="Audit"/>
@@ -88,7 +87,7 @@ class AppContainer extends Component {
 
         </ScrollableTabView>
       </DrawerLayoutAndroid>
-    );
+    )
   }
 }
 
@@ -97,7 +96,7 @@ class PhonesTab extends Component {
     super(props);
     this.routes = [
       {title: 'Phones', index: 0},
-      {title: 'Phones Details', index: 1},
+      {title: 'Phones Details', index: 1}
     ];
   }
 
@@ -127,7 +126,7 @@ class PhonesTab extends Component {
         configureScene={(route, routeStack) =>
           NavigationExperimental.Navigator.SceneConfigs.PushFromRight}
       />
-    );
+    )
   }
 }
 
@@ -303,8 +302,8 @@ const styles = StyleSheet.create({
   buttonText: {
     color: '#fff',
     fontSize: 20,
-    fontWeight: 'bold',
-  },
+    fontWeight: 'bold'
+  }
 });
 
 export default AppContainer;

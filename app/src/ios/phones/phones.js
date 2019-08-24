@@ -12,7 +12,7 @@ import {
   TextInput,
   Image,
   Dimensions,
-  RefreshControl,
+  RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -33,7 +33,7 @@ class Phones extends Component {
       recordsCount: 15,
       positionY: 0,
       searchQuery: '',
-      refreshing: false,
+      refreshing: false
     };
 
     this.getItems();
@@ -45,7 +45,7 @@ class Phones extends Component {
       resultsCount: 0,
       recordsCount: 15,
       positionY: 0,
-      searchQuery: '',
+      searchQuery: ''
     });
 
     fetch(appConfig.url + 'api/items/get', {
@@ -53,8 +53,8 @@ class Phones extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': appConfig.access_token,
-      },
+        'Authorization': appConfig.access_token
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -76,7 +76,7 @@ class Phones extends Component {
         this.setState({
           showProgress: false,
         });
-      });
+      })
   }
 
   sort(a, b) {
@@ -114,11 +114,11 @@ class Phones extends Component {
 
   refreshData(event) {
     if (this.state.showProgress === true) {
-      return;
+      return
     }
 
     if (this.state.filteredItems === undefined) {
-      return;
+      return
     }
 
     let items, positionY, recordsCount;
@@ -130,14 +130,14 @@ class Phones extends Component {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(items),
         recordsCount: recordsCount + 10,
-        positionY: positionY + 400,
-      });
+        positionY: positionY + 400
+      })
     }
   }
 
   onChangeText(text) {
     if (this.state.dataSource === undefined) {
-      return;
+      return
     }
 
     let arr = [].concat(this.state.responseData);
@@ -146,14 +146,14 @@ class Phones extends Component {
       dataSource: this.state.dataSource.cloneWithRows(items),
       resultsCount: items.length,
       filteredItems: items,
-      searchQuery: text,
-    });
+      searchQuery: text
+    })
   }
 
   refreshDataAndroid() {
     this.setState({
       showProgress: true,
-      resultsCount: 0,
+      resultsCount: 0
     });
 
     this.getItems();
@@ -184,7 +184,7 @@ class Phones extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.showProgress) {
@@ -194,7 +194,7 @@ class Phones extends Component {
           color="darkblue"
           animating={true}
         />
-      </View>;
+      </View>
     }
 
     if (this.state.searchQuery.length > 0) {
@@ -205,7 +205,7 @@ class Phones extends Component {
           width: 20,
           marginTop: 10,
         }}
-      />;
+      />
     }
 
     return (
@@ -290,7 +290,7 @@ class Phones extends Component {
           </Text>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -390,8 +390,8 @@ const styles = StyleSheet.create({
   menu: {
     alignItems: 'center',
     margin: 14,
-    marginTop: 16,
-  },
+    marginTop: 16
+  }
 });
 
 export default Phones;

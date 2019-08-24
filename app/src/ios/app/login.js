@@ -21,7 +21,7 @@ class Login extends Component {
     this.state = {
       showProgress: false,
       username: '1',
-      password: '1',
+      password: '1'
     };
   }
 
@@ -31,11 +31,11 @@ class Login extends Component {
       this.setState({
         badCredentials: true,
       });
-      return;
+      return
     }
 
     this.setState({
-      showProgress: true,
+      showProgress: true
     });
 
     fetch(appConfig.url + 'api/login', {
@@ -43,12 +43,12 @@ class Login extends Component {
       body: JSON.stringify({
         name: this.state.username,
         pass: this.state.password,
-        description: 'IOS',
+        description: 'IOS'
       }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -79,7 +79,7 @@ class Login extends Component {
     if (this.state.badCredentials) {
       errorCtrl = <Text style={styles.error}>
         That username and password combination did not work
-      </Text>;
+      </Text>
     }
 
     return (
@@ -140,7 +140,7 @@ class Login extends Component {
           </View>
         </KeyboardAvoidingView>
       </ScrollView>
-    );
+    )
   }
 }
 
@@ -207,7 +207,7 @@ const styles = StyleSheet.create({
     color: 'red',
     paddingTop: 10,
     textAlign: 'center',
-  },
+  }
 });
 
 export default Login;

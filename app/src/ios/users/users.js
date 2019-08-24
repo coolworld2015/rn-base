@@ -11,7 +11,7 @@ import {
   ActivityIndicator,
   TextInput,
   Dimensions,
-  Image,
+  Image
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -33,7 +33,7 @@ class Users extends Component {
       resultsCount: 0,
       recordsCount: 25,
       positionY: 0,
-      searchQuery: '',
+      searchQuery: ''
     };
   }
 
@@ -53,8 +53,8 @@ class Users extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': appConfig.access_token,
-      },
+        'Authorization': appConfig.access_token
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -62,19 +62,19 @@ class Users extends Component {
           dataSource: this.state.dataSource.cloneWithRows(responseData.sort(this.sort).slice(0, 25)),
           resultsCount: responseData.length,
           responseData: responseData,
-          filteredItems: responseData,
-        });
+          filteredItems: responseData
+        })
       })
       .catch(() => {
         this.setState({
-          serverError: true,
-        });
+          serverError: true
+        })
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   sort(a, b) {
@@ -97,11 +97,11 @@ class Users extends Component {
       method: 'post',
       body: JSON.stringify({
         id: id,
-        authorization: appConfig.access_token,
+        authorization: appConfig.access_token
       }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
+        'Content-Type': 'application/json'
       },
     })
       .then((response) => response.json())
@@ -111,20 +111,20 @@ class Users extends Component {
           this.props.navigator.pop();
         } else {
           this.setState({
-            badCredentials: true,
-          });
+            badCredentials: true
+          })
         }
       })
       .catch(() => {
         this.setState({
-          serverError: true,
+          serverError: true
         });
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   showDetails(rowData) {
@@ -147,7 +147,7 @@ class Users extends Component {
           </Text>
         </View>
       </TouchableHighlight>
-    );
+    )
   }
 
   refreshData(event) {
@@ -161,7 +161,7 @@ class Users extends Component {
         resultsCount: 0,
         recordsCount: 25,
         positionY: 0,
-        searchQuery: '',
+        searchQuery: ''
       });
 
       setTimeout(() => {
@@ -182,8 +182,8 @@ class Users extends Component {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(items),
         recordsCount: recordsCount + 10,
-        positionY: positionY + 500,
-      });
+        positionY: positionY + 500
+      })
     }
   }
 
@@ -198,8 +198,8 @@ class Users extends Component {
       dataSource: this.state.dataSource.cloneWithRows(items),
       resultsCount: items.length,
       filteredItems: items,
-      searchQuery: text,
-    });
+      searchQuery: text
+    })
   }
 
   clearSearchQuery() {
@@ -209,8 +209,8 @@ class Users extends Component {
       filteredItems: this.state.responseData,
       positionY: 0,
       recordsCount: 25,
-      searchQuery: '',
-    });
+      searchQuery: ''
+    })
   }
 
   onMenu() {
@@ -223,7 +223,7 @@ class Users extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.showProgress) {
@@ -233,7 +233,7 @@ class Users extends Component {
           color="darkblue"
           animating={true}
         />
-      </View>;
+      </View>
     }
 
     if (this.state.searchQuery.length > 0) {
@@ -242,7 +242,7 @@ class Users extends Component {
         style={{
           height: 20,
           width: 20,
-          marginTop: 10,
+          marginTop: 10
         }}
       />;
     }
@@ -326,7 +326,7 @@ class Users extends Component {
           </TouchableWithoutFeedback>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -421,13 +421,13 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     paddingTop: 10,
-    textAlign: 'center',
+    textAlign: 'center'
   },
   menu: {
     alignItems: 'center',
     margin: 14,
-    marginTop: 16,
-  },
+    marginTop: 16
+  }
 });
 
 export default Users;

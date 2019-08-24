@@ -9,7 +9,7 @@ import {
   ScrollView,
   ActivityIndicator,
   TextInput,
-  TouchableWithoutFeedback,
+  TouchableWithoutFeedback
 } from 'react-native';
 
 class UserAdd extends Component {
@@ -17,7 +17,7 @@ class UserAdd extends Component {
     super(props);
 
     this.state = {
-      showProgress: false,
+      showProgress: false
     };
   }
 
@@ -42,12 +42,12 @@ class UserAdd extends Component {
         name: this.state.name,
         pass: this.state.pass,
         description: this.state.description,
-        authorization: appConfig.access_token,
+        authorization: appConfig.access_token
       }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -56,13 +56,13 @@ class UserAdd extends Component {
       .catch((error) => {
         this.setState({
           serverError: true,
-        });
+        })
       })
       .finally(() => {
         this.setState({
           showProgress: false,
-        });
-      });
+        })
+      })
   }
 
   goBack() {
@@ -75,13 +75,13 @@ class UserAdd extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.invalidValue) {
       validCtrl = <Text style={styles.error}>
         Value required - please provide.
-      </Text>;
+      </Text>
     }
 
     return (
@@ -123,13 +123,13 @@ class UserAdd extends Component {
           <View style={{
             flex: 1,
             padding: 10,
-            justifyContent: 'flex-start',
+            justifyContent: 'flex-start'
           }}>
 
             <TextInput
               onChangeText={(text) => this.setState({
                 name: text,
-                invalidValue: false,
+                invalidValue: false
               })}
               style={styles.loginInput}
               value={this.state.name}
@@ -139,7 +139,7 @@ class UserAdd extends Component {
             <TextInput
               onChangeText={(text) => this.setState({
                 pass: text,
-                invalidValue: false,
+                invalidValue: false
               })}
               style={styles.loginInput}
               value={this.state.pass}
@@ -150,7 +150,7 @@ class UserAdd extends Component {
               multiline={true}
               onChangeText={(text) => this.setState({
                 description: text,
-                invalidValue: false,
+                invalidValue: false
               })}
               style={styles.formInputArea}
               value={this.state.description}
@@ -175,7 +175,7 @@ class UserAdd extends Component {
           </View>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
 
@@ -259,8 +259,8 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     paddingTop: 10,
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });
 
 export default UserAdd;

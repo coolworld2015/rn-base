@@ -35,7 +35,7 @@ class UserAdd extends Component {
       this.state.pass === undefined || this.state.pass === '' ||
       this.state.description === undefined || this.state.description === '') {
       this.setState({
-        invalidValue: true,
+        invalidValue: true
       });
       return
     }
@@ -192,7 +192,7 @@ class UserAdd extends Component {
           </View>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
 
@@ -273,7 +273,7 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     paddingTop: 10,
-    textAlign: 'center',
+    textAlign: 'center'
   }
 });
 

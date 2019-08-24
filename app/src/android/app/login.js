@@ -10,7 +10,7 @@ import {
   ScrollView,
   ActivityIndicator,
   TextInput,
-  Dimensions,
+  Dimensions
 } from 'react-native';
 
 class Login extends Component {
@@ -21,7 +21,7 @@ class Login extends Component {
       showProgress: false,
       username: '1',
       password: '1',
-      bugANDROID: '',
+      bugANDROID: ''
     };
   }
 
@@ -44,34 +44,34 @@ class Login extends Component {
       body: JSON.stringify({
         name: this.state.username,
         pass: this.state.password,
-        description: 'Android',
+        description: 'Android'
       }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
         if (responseData.token) {
           appConfig.access_token = responseData.token;
           this.setState({
-            badCredentials: false,
+            badCredentials: false
           });
           this.props.onLogin();
         } else {
           this.setState({
             badCredentials: true,
-            showProgress: false,
-          });
+            showProgress: false
+          })
         }
       })
       .catch((error) => {
         this.setState({
           badCredentials: true,
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   render() {
@@ -80,7 +80,7 @@ class Login extends Component {
     if (this.state.badCredentials) {
       errorCtrl = <Text style={styles.error}>
         That username and password combination did not work
-      </Text>;
+      </Text>
     }
 
     if (this.state.showProgress) {
@@ -89,7 +89,7 @@ class Login extends Component {
         size="large"
         color="darkblue"
         style={styles.loader}
-      />;
+      />
     }
 
     return (
@@ -148,7 +148,7 @@ class Login extends Component {
           <Text>{this.state.bugANDROID}</Text>
         </View>
       </ScrollView>
-    );
+    )
   }
 }
 
@@ -213,8 +213,8 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     paddingTop: 10,
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });
 
 export default Login;

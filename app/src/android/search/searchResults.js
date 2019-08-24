@@ -13,7 +13,7 @@ import {
   BackHandler,
   Image,
   Dimensions,
-  RefreshControl,
+  RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -30,11 +30,11 @@ class SearchResults extends Component {
     });
 
     let ds = new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2,
+      rowHasChanged: (r1, r2) => r1 !== r2
     });
 
     this.state = {
-      dataSource: ds.cloneWithRows([]),
+      dataSource: ds.cloneWithRows([])
     };
 
     if (props.data) {
@@ -47,8 +47,7 @@ class SearchResults extends Component {
         recordsCount: 15,
         positionY: 0,
         searchQuery: '',
-        refreshing: false,
-        width: Dimensions.get('window').width,
+        refreshing: false
       };
 
       this.getItems();
@@ -61,7 +60,7 @@ class SearchResults extends Component {
       resultsCount: 0,
       recordsCount: 15,
       positionY: 0,
-      searchQuery: '',
+      searchQuery: ''
     });
 
     let webUrl;
@@ -76,8 +75,8 @@ class SearchResults extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': appConfig.access_token,
-      },
+        'Authorization': appConfig.access_token
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -86,20 +85,19 @@ class SearchResults extends Component {
           resultsCount: responseData.length,
           responseData: responseData.sort(this.sort),
           filteredItems: responseData.sort(this.sort),
-          refreshing: false,
-        });
-
+          refreshing: false
+        })
       })
       .catch((error) => {
         this.setState({
-          serverError: true,
-        });
+          serverError: true
+        })
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   sort(a, b) {
@@ -116,7 +114,7 @@ class SearchResults extends Component {
   showDetails(rowData) {
     this.props.navigator.push({
       index: 1,
-      data: rowData,
+      data: rowData
     });
   }
 
@@ -124,15 +122,14 @@ class SearchResults extends Component {
     return (
       <TouchableHighlight
         onPress={() => this.showDetails(rowData)}
-        underlayColor='#ddd'
-      >
+        underlayColor='#ddd'>
         <View style={styles.row}>
           <Text style={styles.rowText}>
             {rowData.name} - {rowData.phone}
           </Text>
         </View>
       </TouchableHighlight>
-    );
+    )
   }
 
   refreshData(event) {
@@ -146,7 +143,7 @@ class SearchResults extends Component {
         resultsCount: 0,
         recordsCount: 15,
         positionY: 0,
-        searchQuery: '',
+        searchQuery: ''
       });
 
       setTimeout(() => {
@@ -167,7 +164,7 @@ class SearchResults extends Component {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(items),
         recordsCount: recordsCount + 10,
-        positionY: positionY + 500,
+        positionY: positionY + 500
       });
     }
   }
@@ -183,14 +180,14 @@ class SearchResults extends Component {
       dataSource: this.state.dataSource.cloneWithRows(items),
       resultsCount: items.length,
       filteredItems: items,
-      searchQuery: text,
+      searchQuery: text
     });
   }
 
   refreshDataAndroid() {
     this.setState({
       showProgress: true,
-      resultsCount: 0,
+      resultsCount: 0
     });
 
     this.getItems();
@@ -207,7 +204,7 @@ class SearchResults extends Component {
       filteredItems: this.state.responseData,
       positionY: 0,
       recordsCount: 15,
-      searchQuery: '',
+      searchQuery: ''
     });
   }
 
@@ -236,7 +233,7 @@ class SearchResults extends Component {
         style={{
           height: 20,
           width: 20,
-          marginTop: 10,
+          marginTop: 10
         }}
       />
     }
@@ -397,7 +394,7 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     paddingTop: 10,
-    textAlign: 'center',
+    textAlign: 'center'
   }
 });
 

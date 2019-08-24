@@ -34,8 +34,8 @@ class PhoneDetails extends Component {
         street: props.data.street,
         house: props.data.house,
         apt: props.data.apt,
-        index: props.data.index,
-      };
+        index: props.data.index
+      }
     }
   }
 
@@ -170,7 +170,7 @@ class PhoneDetails extends Component {
           </View>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
 
@@ -253,8 +253,8 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     paddingTop: 10,
-    textAlign: 'center',
-  },
+    textAlign: 'center'
+  }
 });
 
 export default PhoneDetails;

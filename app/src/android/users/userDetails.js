@@ -45,14 +45,14 @@ class UserDetails extends Component {
       this.state.pass === undefined || this.state.pass === '' ||
       this.state.description === undefined || this.state.description === '') {
       this.setState({
-        invalidValue: true,
+        invalidValue: true
       });
-      return;
+      return
     }
 
     this.setState({
       showProgress: true,
-      bugANDROID: ' ',
+      bugANDROID: ' '
     });
 
     fetch(appConfig.url + 'api/users/update', {
@@ -76,20 +76,20 @@ class UserDetails extends Component {
           this.props.navigator.pop();
         } else {
           this.setState({
-            badCredentials: true,
-          });
+            badCredentials: true
+          })
         }
       })
       .catch((error) => {
         this.setState({
-          serverError: true,
-        });
+          serverError: true
+        })
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   deleteItemDialog() {
@@ -131,20 +131,20 @@ class UserDetails extends Component {
           this.props.navigator.pop();
         } else {
           this.setState({
-            badCredentials: true,
+            badCredentials: true
           });
         }
       })
       .catch((error) => {
         this.setState({
-          serverError: true,
+          serverError: true
         });
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   goBack() {
@@ -157,7 +157,7 @@ class UserDetails extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.showProgress) {
@@ -167,13 +167,13 @@ class UserDetails extends Component {
           color="darkblue"
           animating={true}
         />
-      </View>;
+      </View>
     }
 
     if (this.state.invalidValue) {
       validCtrl = <Text style={styles.error}>
         Value required - please provide.
-      </Text>;
+      </Text>
     }
 
     return (
@@ -218,7 +218,7 @@ class UserDetails extends Component {
               underlineColorAndroid='rgba(0,0,0,0)'
               onChangeText={(text) => this.setState({
                 name: text,
-                invalidValue: false,
+                invalidValue: false
               })}
               style={styles.formInputBold}
               value={this.state.name}
@@ -358,7 +358,7 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     paddingTop: 10,
-    textAlign: 'center',
+    textAlign: 'center'
   }
 });
 

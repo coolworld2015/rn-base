@@ -11,7 +11,8 @@ import {
   ActivityIndicator,
   TextInput,
   Image,
-  Dimensions, RefreshControl,
+  Dimensions,
+  RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -32,7 +33,7 @@ class Users extends Component {
       recordsCount: 15,
       positionY: 0,
       searchQuery: '',
-      refreshing: false,
+      refreshing: false
     };
 
     this.getItems();
@@ -44,7 +45,7 @@ class Users extends Component {
 
       this.setState({
         showProgress: true,
-        resultsCount: 0,
+        resultsCount: 0
       });
 
       this.getItems();
@@ -57,7 +58,7 @@ class Users extends Component {
       resultsCount: 0,
       recordsCount: 15,
       positionY: 0,
-      searchQuery: '',
+      searchQuery: ''
     });
 
     fetch(appConfig.url + 'api/users/get', {
@@ -65,8 +66,8 @@ class Users extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': appConfig.access_token,
-      },
+        'Authorization': appConfig.access_token
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -75,19 +76,19 @@ class Users extends Component {
           resultsCount: responseData.length,
           responseData: responseData,
           filteredItems: responseData,
-          refreshing: false,
-        });
+          refreshing: false
+        })
       })
       .catch((error) => {
         this.setState({
-          serverError: true,
-        });
+          serverError: true
+        })
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   sort(a, b) {
@@ -104,14 +105,14 @@ class Users extends Component {
   showDetails(rowData) {
     this.props.navigator.push({
       index: 1,
-      data: rowData,
+      data: rowData
     });
   }
 
   addItem() {
     this.props.navigator.push({
-      index: 2,
-    });
+      index: 2
+    })
   }
 
   renderRow(rowData) {
@@ -125,7 +126,7 @@ class Users extends Component {
           </Text>
         </View>
       </TouchableHighlight>
-    );
+    )
   }
 
   refreshData(event) {
@@ -146,8 +147,8 @@ class Users extends Component {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(items),
         recordsCount: recordsCount + 10,
-        positionY: positionY + 500,
-      });
+        positionY: positionY + 500
+      })
     }
   }
 
@@ -162,14 +163,14 @@ class Users extends Component {
       dataSource: this.state.dataSource.cloneWithRows(items),
       resultsCount: items.length,
       filteredItems: items,
-      searchQuery: text,
+      searchQuery: text
     });
   }
 
   refreshDataAndroid() {
     this.setState({
       showProgress: true,
-      resultsCount: 0,
+      resultsCount: 0
     });
 
     this.getItems();
@@ -186,7 +187,7 @@ class Users extends Component {
       filteredItems: this.state.responseData,
       positionY: 0,
       recordsCount: 15,
-      searchQuery: '',
+      searchQuery: ''
     });
   }
 
@@ -219,7 +220,7 @@ class Users extends Component {
         style={{
           height: 20,
           width: 20,
-          marginTop: 10,
+          marginTop: 10
         }}
       />
     }
@@ -312,7 +313,7 @@ class Users extends Component {
           </TouchableWithoutFeedback>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -412,7 +413,7 @@ const styles = StyleSheet.create({
   menu: {
     alignItems: 'center',
     margin: 14,
-    marginTop: 16,
+    marginTop: 16
   }
 });
 

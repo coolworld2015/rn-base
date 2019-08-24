@@ -12,7 +12,7 @@ import {
   TextInput,
   Image,
   Dimensions,
-  RefreshControl,
+  RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -33,7 +33,7 @@ class Audit extends Component {
       recordsCount: 15,
       positionY: 0,
       searchQuery: '',
-      refreshing: false,
+      refreshing: false
     };
 
     this.getItems();
@@ -53,7 +53,7 @@ class Audit extends Component {
       headers: {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
-        'Authorization': appConfig.access_token,
+        'Authorization': appConfig.access_token
       }
     })
       .then((response) => response.json())
@@ -63,26 +63,26 @@ class Audit extends Component {
           dataSource: this.state.dataSource.cloneWithRows(responseData.slice(0, 15)),
           resultsCount: responseData.length,
           responseData: responseData,
-          filteredItems: responseData,
-        });
+          filteredItems: responseData
+        })
       })
       .catch((error) => {
         this.setState({
-          serverError: true,
-        });
+          serverError: true
+        })
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   showDetails(rowData) {
     this.props.navigator.push({
       index: 1,
-      data: rowData,
-    });
+      data: rowData
+    })
   }
 
   renderRow(rowData) {
@@ -96,7 +96,7 @@ class Audit extends Component {
           </Text>
         </View>
       </TouchableHighlight>
-    );
+    )
   }
 
   refreshData(event) {
@@ -118,7 +118,7 @@ class Audit extends Component {
         dataSource: this.state.dataSource.cloneWithRows(items),
         recordsCount: recordsCount + 10,
         positionY: positionY + 500
-      });
+      })
     }
   }
 
@@ -133,14 +133,14 @@ class Audit extends Component {
       dataSource: this.state.dataSource.cloneWithRows(items),
       resultsCount: items.length,
       filteredItems: items,
-      searchQuery: text,
-    });
+      searchQuery: text
+    })
   }
 
   refreshDataAndroid() {
     this.setState({
       showProgress: true,
-      resultsCount: 0,
+      resultsCount: 0
     });
 
     this.getItems();
@@ -157,7 +157,7 @@ class Audit extends Component {
       filteredItems: this.state.responseData,
       positionY: 0,
       recordsCount: 15,
-      searchQuery: '',
+      searchQuery: ''
     });
   }
 
@@ -171,7 +171,7 @@ class Audit extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.showProgress) {
@@ -181,7 +181,7 @@ class Audit extends Component {
           color="darkblue"
           animating={true}
         />
-      </View>;
+      </View>
     }
 
     if (this.state.searchQuery.length > 0) {
@@ -190,9 +190,9 @@ class Audit extends Component {
         style={{
           height: 20,
           width: 20,
-          marginTop: 10,
+          marginTop: 10
         }}
-      />;
+      />
     }
 
     return (
@@ -275,7 +275,7 @@ class Audit extends Component {
           </Text>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -375,8 +375,8 @@ const styles = StyleSheet.create({
   menu: {
     alignItems: 'center',
     margin: 14,
-    marginTop: 16,
-  },
+    marginTop: 16
+  }
 });
 
 export default Audit;

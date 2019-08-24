@@ -43,19 +43,19 @@ class App extends Component {
         refresh: true,
         items: [],
         item: {},
-      },
-    };
+      }
+    }
   }
 
   render() {
     if (this.state.isLoggedIn) {
       return (
         <AppContainer/>
-      );
+      )
     } else {
       return (
         <Login onLogin={this.onLogin.bind(this)}/>
-      );
+      )
     }
   }
 

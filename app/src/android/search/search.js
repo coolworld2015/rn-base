@@ -29,7 +29,7 @@ class Search extends Component {
   clearSearch() {
     this.setState({
       searchQuery: '',
-      invalidValue: false,
+      invalidValue: false
     });
   }
 
@@ -37,7 +37,7 @@ class Search extends Component {
     if (this.state.searchQuery === undefined ||
       this.state.searchQuery === '') {
       this.setState({
-        invalidValue: true,
+        invalidValue: true
       });
       return;
     }
@@ -46,20 +46,20 @@ class Search extends Component {
       index: 3,
       data: {
         searchQuery: this.state.searchQuery,
-        searchType: this.state.textSwitchBase,
-      },
+        searchType: this.state.textSwitchBase
+      }
     });
   }
 
   toggleTypeChange() {
     if (this.state.eventSwitchBase) {
       this.setState({
-        textSwitchBase: 'Search by phone',
-      });
+        textSwitchBase: 'Search by phone'
+      })
     } else {
       this.setState({
-        textSwitchBase: 'Search by name',
-      });
+        textSwitchBase: 'Search by name'
+      })
     }
   }
 
@@ -139,7 +139,7 @@ class Search extends Component {
                 underlineColorAndroid='rgba(0,0,0,0)'
                 onChangeText={(text) => this.setState({
                   searchQuery: text,
-                  invalidValue: false,
+                  invalidValue: false
                 })}
                 value={this.state.searchQuery}
                 style={styles.search}
@@ -258,7 +258,7 @@ const styles = StyleSheet.create({
   error: {
     color: 'red',
     paddingTop: 10,
-    textAlign: 'center',
+    textAlign: 'center'
   }
 });
 
