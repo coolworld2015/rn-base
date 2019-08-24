@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {
-  BackHandler,
+  BackHandler
 } from 'react-native';
 
 console.disableYellowBox = true;

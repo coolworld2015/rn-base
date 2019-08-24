@@ -8,7 +8,7 @@ import {
   TouchableHighlight,
   TouchableWithoutFeedback,
   ScrollView,
-  BackHandler,
+  BackHandler
 } from 'react-native';
 
 class AuditDetails extends Component {
@@ -23,7 +23,7 @@ class AuditDetails extends Component {
     });
 
     this.state = {
-      name: '',
+      name: ''
     };
 
     if (props.data) {
@@ -35,7 +35,7 @@ class AuditDetails extends Component {
         date: props.data.date,
         ip: ip[3],
         description: props.data.description,
-        showProgress: false,
+        showProgress: false
       };
     }
   }
@@ -51,8 +51,7 @@ class AuditDetails extends Component {
           <View>
             <TouchableHighlight
               onPress={() => this.goBack()}
-              underlayColor='darkblue'
-            >
+              underlayColor='darkblue'>
               <View>
                 <Text style={styles.textSmall}>
                   Back

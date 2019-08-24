@@ -22,7 +22,6 @@ class Login extends Component {
       username: '1',
       password: '1',
       bugANDROID: '',
-      width: Dimensions.get('window').width,
     };
   }
 
@@ -103,8 +102,9 @@ class Login extends Component {
             </Text>
           </View>
 
-          <Image style={styles.logo}
-                 source={require('../../../img/logo.jpg')}
+          <Image
+            style={styles.logo}
+            source={require('../../../img/logo.jpg')}
           />
 
           <TextInput

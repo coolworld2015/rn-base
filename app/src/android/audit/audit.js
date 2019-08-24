@@ -34,7 +34,6 @@ class Audit extends Component {
       positionY: 0,
       searchQuery: '',
       refreshing: false,
-      width: Dimensions.get('window').width,
     };
 
     this.getItems();
@@ -46,7 +45,7 @@ class Audit extends Component {
       resultsCount: 0,
       recordsCount: 15,
       positionY: 0,
-      searchQuery: '',
+      searchQuery: ''
     });
 
     fetch(appConfig.url + 'api/audit/get', {
@@ -55,7 +54,7 @@ class Audit extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': appConfig.access_token,
-      },
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -90,8 +89,7 @@ class Audit extends Component {
     return (
       <TouchableHighlight
         onPress={() => this.showDetails(rowData)}
-        underlayColor='#ddd'
-      >
+        underlayColor='#ddd'>
         <View style={styles.row}>
           <Text style={styles.rowText}>
             {rowData.name} - {rowData.date}
@@ -119,7 +117,7 @@ class Audit extends Component {
       this.setState({
         dataSource: this.state.dataSource.cloneWithRows(items),
         recordsCount: recordsCount + 10,
-        positionY: positionY + 500,
+        positionY: positionY + 500
       });
     }
   }
@@ -203,8 +201,9 @@ class Audit extends Component {
           <View>
             <TouchableWithoutFeedback onPress={this.onMenu.bind(this)}>
               <View>
-                <Image style={styles.menu}
-                       source={require('../../../img/menu.png')}
+                <Image
+                  style={styles.menu}
+                  source={require('../../../img/menu.png')}
                 />
               </View>
             </TouchableWithoutFeedback>
@@ -262,8 +261,7 @@ class Audit extends Component {
               refreshing={this.state.refreshing}
               onRefresh={this.refreshDataAndroid.bind(this)}
             />
-          }
-        >
+          }>
           <ListView
             enableEmptySections={true}
             dataSource={this.state.dataSource}

@@ -8,7 +8,7 @@ import {
   TouchableHighlight,
   TouchableWithoutFeedback,
   ScrollView,
-  BackHandler,
+  BackHandler
 } from 'react-native';
 
 class PhoneDetails extends Component {
@@ -23,7 +23,7 @@ class PhoneDetails extends Component {
     });
 
     this.state = {
-      name: '',
+      name: ''
     };
 
     if (props.data) {
@@ -50,8 +50,7 @@ class PhoneDetails extends Component {
           <View>
             <TouchableHighlight
               onPress={() => this.goBack()}
-              underlayColor='darkblue'
-            >
+              underlayColor='darkblue'>
               <View>
                 <Text style={styles.textSmall}>
                   Back

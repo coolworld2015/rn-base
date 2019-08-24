@@ -11,7 +11,7 @@ import {
   ActivityIndicator,
   TextInput,
   BackHandler,
-  Alert,
+  Alert
 } from 'react-native';
 
 class UserDetails extends Component {
@@ -26,7 +26,7 @@ class UserDetails extends Component {
     });
 
     this.state = {
-      serverError: false,
+      serverError: false
     };
 
     if (props.data) {
@@ -35,7 +35,7 @@ class UserDetails extends Component {
         name: props.data.name,
         pass: props.data.pass,
         description: props.data.description,
-        showProgress: false,
+        showProgress: false
       };
     }
   }
@@ -62,12 +62,12 @@ class UserDetails extends Component {
         name: this.state.name,
         pass: this.state.pass,
         description: this.state.description,
-        authorization: appConfig.access_token,
+        authorization: appConfig.access_token
       }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -110,19 +110,19 @@ class UserDetails extends Component {
   deleteItem() {
     this.setState({
       showProgress: true,
-      bugANDROID: ' ',
+      bugANDROID: ' '
     });
 
     fetch(appConfig.url + 'api/users/delete', {
       method: 'post',
       body: JSON.stringify({
         id: this.state.id,
-        authorization: appConfig.access_token,
+        authorization: appConfig.access_token
       }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -145,7 +145,6 @@ class UserDetails extends Component {
           showProgress: false,
         });
       });
-
   }
 
   goBack() {
@@ -183,8 +182,7 @@ class UserDetails extends Component {
           <View>
             <TouchableHighlight
               onPress={() => this.goBack()}
-              underlayColor='darkblue'
-            >
+              underlayColor='darkblue'>
               <View>
                 <Text style={styles.textSmall}>
                   Back
@@ -204,8 +202,7 @@ class UserDetails extends Component {
           <View>
             <TouchableHighlight
               onPress={() => this.deleteItemDialog()}
-              underlayColor='darkblue'
-            >
+              underlayColor='darkblue'>
               <View>
                 <Text style={styles.textSmall}>
                   Delete
@@ -232,7 +229,7 @@ class UserDetails extends Component {
               underlineColorAndroid='rgba(0,0,0,0)'
               onChangeText={(text) => this.setState({
                 pass: text,
-                invalidValue: false,
+                invalidValue: false
               })}
               style={styles.formInput}
               value={this.state.pass}
@@ -244,7 +241,7 @@ class UserDetails extends Component {
               multiline={true}
               onChangeText={(text) => this.setState({
                 description: text,
-                invalidValue: false,
+                invalidValue: false
               })}
               style={styles.formInputArea}
               value={this.state.description}
@@ -269,7 +266,7 @@ class UserDetails extends Component {
           </View>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
 
@@ -362,7 +359,7 @@ const styles = StyleSheet.create({
     color: 'red',
     paddingTop: 10,
     textAlign: 'center',
-  },
+  }
 });
 
 export default UserDetails;

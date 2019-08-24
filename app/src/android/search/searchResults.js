@@ -217,7 +217,7 @@ class SearchResults extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.showProgress) {
@@ -227,7 +227,7 @@ class SearchResults extends Component {
           color="darkblue"
           animating={true}
         />
-      </View>;
+      </View>
     }
 
     if (this.state.searchQuery.length > 0) {
@@ -238,7 +238,7 @@ class SearchResults extends Component {
           width: 20,
           marginTop: 10,
         }}
-      />;
+      />
     }
 
     return (
@@ -247,8 +247,7 @@ class SearchResults extends Component {
           <View>
             <TouchableHighlight
               onPress={() => this.goBack()}
-              underlayColor='darkblue'
-            >
+              underlayColor='darkblue'>
               <View>
                 <Text style={styles.textSmall}>
                   Back
@@ -287,8 +286,7 @@ class SearchResults extends Component {
           </View>
           <View style={styles.searchSmall}>
             <TouchableWithoutFeedback
-              onPress={() => this.clearSearchQuery()}
-            >
+              onPress={() => this.clearSearchQuery()}>
               <View>
                 {image}
               </View>
@@ -309,8 +307,7 @@ class SearchResults extends Component {
               refreshing={this.state.refreshing}
               onRefresh={this.refreshDataAndroid.bind(this)}
             />
-          }
-        >
+          }>
           <ListView
             enableEmptySections={true}
             dataSource={this.state.dataSource}
@@ -324,7 +321,7 @@ class SearchResults extends Component {
           </Text>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -401,7 +398,7 @@ const styles = StyleSheet.create({
     color: 'red',
     paddingTop: 10,
     textAlign: 'center',
-  },
+  }
 });
 
 export default SearchResults;

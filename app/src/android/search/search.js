@@ -10,7 +10,7 @@ import {
   ScrollView,
   TextInput,
   Switch,
-  Dimensions,
+  Dimensions
 } from 'react-native';
 
 class Search extends Component {
@@ -73,7 +73,7 @@ class Search extends Component {
     if (this.state.invalidValue) {
       validCtrl = <Text style={styles.error}>
         Value required - please provide.
-      </Text>;
+      </Text>
     }
 
     return (
@@ -82,8 +82,7 @@ class Search extends Component {
           <View>
             <TouchableHighlight
               onPress={() => this.goBack()}
-              underlayColor='darkblue'
-            >
+              underlayColor='darkblue'>
               <View>
                 <Text style={styles.textSmall}>
                   Back
@@ -103,8 +102,7 @@ class Search extends Component {
           <View>
             <TouchableHighlight
               onPress={() => this.clearSearch()}
-              underlayColor='darkblue'
-            >
+              underlayColor='darkblue'>
               <View>
                 <Text style={styles.textSmall}>
                   Clear
@@ -162,7 +160,7 @@ class Search extends Component {
           </View>
         </ScrollView>
       </View>
-    );
+    )
   }
 }
 
@@ -261,7 +259,7 @@ const styles = StyleSheet.create({
     color: 'red',
     paddingTop: 10,
     textAlign: 'center',
-  },
+  }
 });
 
 export default Search;

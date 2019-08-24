@@ -6,7 +6,7 @@ import {
   Text,
   View,
   TouchableHighlight,
-  DrawerLayoutAndroid,
+  DrawerLayoutAndroid
 } from 'react-native';
 
 import NavigationExperimental from 'react-native-deprecated-custom-components';

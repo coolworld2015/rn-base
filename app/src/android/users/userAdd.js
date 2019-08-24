@@ -10,7 +10,7 @@ import {
   ScrollView,
   ActivityIndicator,
   TextInput,
-  BackHandler,
+  BackHandler
 } from 'react-native';
 
 class UserAdd extends Component {
@@ -21,12 +21,12 @@ class UserAdd extends Component {
       if (this.props.navigator) {
         this.props.navigator.pop();
       }
-      return true;
+      return true
     });
 
     this.state = {
       showProgress: false,
-      bugANDROID: '',
+      bugANDROID: ''
     };
   }
 
@@ -37,12 +37,12 @@ class UserAdd extends Component {
       this.setState({
         invalidValue: true,
       });
-      return;
+      return
     }
 
     this.setState({
       showProgress: true,
-      bugANDROID: ' ',
+      bugANDROID: ' '
     });
 
     fetch(appConfig.url + 'api/users/add', {
@@ -52,12 +52,12 @@ class UserAdd extends Component {
         name: this.state.name,
         pass: this.state.pass,
         description: this.state.description,
-        authorization: appConfig.access_token,
+        authorization: appConfig.access_token
       }),
       headers: {
         'Accept': 'application/json',
-        'Content-Type': 'application/json',
-      },
+        'Content-Type': 'application/json'
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -66,14 +66,14 @@ class UserAdd extends Component {
       })
       .catch((error) => {
         this.setState({
-          serverError: true,
-        });
+          serverError: true
+        })
       })
       .finally(() => {
         this.setState({
-          showProgress: false,
-        });
-      });
+          showProgress: false
+        })
+      })
   }
 
   goBack() {
@@ -86,13 +86,13 @@ class UserAdd extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.invalidValue) {
       validCtrl = <Text style={styles.error}>
         Value required - please provide.
-      </Text>;
+      </Text>
     }
 
     if (this.state.showProgress) {
@@ -102,7 +102,7 @@ class UserAdd extends Component {
           color="darkblue"
           animating={true}
         />
-      </View>;
+      </View>
     }
 
     return (
@@ -111,8 +111,7 @@ class UserAdd extends Component {
           <View>
             <TouchableHighlight
               onPress={() => this.goBack()}
-              underlayColor='darkblue'
-            >
+              underlayColor='darkblue'>
               <View>
                 <Text style={styles.textSmall}>
                   Back
@@ -275,7 +274,7 @@ const styles = StyleSheet.create({
     color: 'red',
     paddingTop: 10,
     textAlign: 'center',
-  },
+  }
 });
 
 export default UserAdd;

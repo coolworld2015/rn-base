@@ -12,7 +12,7 @@ import {
   TextInput,
   Image,
   Dimensions,
-  RefreshControl,
+  RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -33,9 +33,9 @@ class Phones extends Component {
       recordsCount: 15,
       positionY: 0,
       searchQuery: '',
-      refreshing: false,
-      width: Dimensions.get('window').width,
+      refreshing: false
     };
+
     this.getItems();
   }
 
@@ -45,7 +45,7 @@ class Phones extends Component {
       resultsCount: 0,
       recordsCount: 15,
       positionY: 0,
-      searchQuery: '',
+      searchQuery: ''
     });
 
     fetch(appConfig.url + 'api/items/get', {
@@ -54,7 +54,7 @@ class Phones extends Component {
         'Accept': 'application/json',
         'Content-Type': 'application/json',
         'Authorization': appConfig.access_token,
-      },
+      }
     })
       .then((response) => response.json())
       .then((responseData) => {
@@ -107,8 +107,7 @@ class Phones extends Component {
     return (
       <TouchableHighlight
         onPress={() => this.showDetails(rowData)}
-        underlayColor='#ddd'
-      >
+        underlayColor='#ddd'>
         <View style={styles.row}>
           <Text style={styles.rowText}>
             {rowData.name} - {rowData.phone}
@@ -137,7 +136,7 @@ class Phones extends Component {
         dataSource: this.state.dataSource.cloneWithRows(items),
         recordsCount: recordsCount + 10,
         positionY: positionY + 400,
-      });
+      })
     }
   }
 
@@ -153,7 +152,7 @@ class Phones extends Component {
       resultsCount: items.length,
       filteredItems: items,
       searchQuery: text,
-    });
+    })
   }
 
   refreshDataAndroid() {
@@ -190,7 +189,7 @@ class Phones extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.showProgress) {
@@ -200,7 +199,7 @@ class Phones extends Component {
           color="darkblue"
           animating={true}
         />
-      </View>;
+      </View>
     }
 
     if (this.state.searchQuery.length > 0) {
@@ -211,7 +210,7 @@ class Phones extends Component {
           width: 20,
           marginTop: 10,
         }}
-      />;
+      />
     }
 
     return (
@@ -239,8 +238,7 @@ class Phones extends Component {
           <View>
             <TouchableHighlight
               onPress={() => this.goSearch()}
-              underlayColor='darkblue'
-            >
+              underlayColor='darkblue'>
               <View>
                 <Text style={styles.textSmall}>
                   Search
@@ -262,8 +260,7 @@ class Phones extends Component {
           </View>
           <View style={styles.searchSmall}>
             <TouchableWithoutFeedback
-              onPress={() => this.clearSearchQuery()}
-            >
+              onPress={() => this.clearSearchQuery()}>
               <View>
                 {image}
               </View>
@@ -284,8 +281,7 @@ class Phones extends Component {
               refreshing={this.state.refreshing}
               onRefresh={this.refreshDataAndroid.bind(this)}
             />
-          }
-        >
+          }>
           <ListView
             enableEmptySections={true}
             dataSource={this.state.dataSource}
@@ -299,7 +295,7 @@ class Phones extends Component {
           </Text>
         </View>
       </View>
-    );
+    )
   }
 }
 
@@ -400,7 +396,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 14,
     marginTop: 16,
-  },
+  }
 });
 
 export default Phones;

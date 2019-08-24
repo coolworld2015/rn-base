@@ -11,8 +11,7 @@ import {
   ActivityIndicator,
   TextInput,
   Image,
-  Dimensions,
-  RefreshControl,
+  Dimensions, RefreshControl,
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -34,7 +33,6 @@ class Users extends Component {
       positionY: 0,
       searchQuery: '',
       refreshing: false,
-      width: Dimensions.get('window').width,
     };
 
     this.getItems();
@@ -120,8 +118,7 @@ class Users extends Component {
     return (
       <TouchableHighlight
         onPress={() => this.showDetails(rowData)}
-        underlayColor='#ddd'
-      >
+        underlayColor='#ddd'>
         <View style={styles.row}>
           <Text style={styles.rowText}>
             {rowData.name}
@@ -203,7 +200,7 @@ class Users extends Component {
     if (this.state.serverError) {
       errorCtrl = <Text style={styles.error}>
         Something went wrong.
-      </Text>;
+      </Text>
     }
 
     if (this.state.showProgress) {
@@ -213,7 +210,7 @@ class Users extends Component {
           color="darkblue"
           animating={true}
         />
-      </View>;
+      </View>
     }
 
     if (this.state.searchQuery.length > 0) {
@@ -224,7 +221,7 @@ class Users extends Component {
           width: 20,
           marginTop: 10,
         }}
-      />;
+      />
     }
 
     return (
@@ -233,8 +230,9 @@ class Users extends Component {
           <View>
             <TouchableWithoutFeedback onPress={this.onMenu.bind(this)}>
               <View>
-                <Image style={styles.menu}
-                       source={require('../../../img/menu.png')}
+                <Image
+                  style={styles.menu}
+                  source={require('../../../img/menu.png')}
                 />
               </View>
             </TouchableWithoutFeedback>
@@ -286,7 +284,15 @@ class Users extends Component {
         {loader}
 
         <ScrollView
-          onScroll={this.refreshData.bind(this)} scrollEventThrottle={16}>
+          onScroll={this.refreshData.bind(this)}
+          scrollEventThrottle={16}
+          refreshControl={
+            <RefreshControl
+              enabled={true}
+              refreshing={this.state.refreshing}
+              onRefresh={this.refreshDataAndroid.bind(this)}
+            />
+          }>
           <ListView
             style={styles.scroll}
             enableEmptySections={true}
@@ -407,7 +413,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     margin: 14,
     marginTop: 16,
-  },
+  }
 });
 
 export default Users;
