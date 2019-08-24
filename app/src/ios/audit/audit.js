@@ -236,36 +236,19 @@ class Audit extends Component {
                         <TextInput
                           underlineColorAndroid='rgba(0,0,0,0)'
                           onChangeText={this.onChangeText.bind(this)}
-                          style={{
-                              height: 45,
-                              padding: 5,
-                              backgroundColor: 'white',
-                              borderWidth: 3,
-                              borderColor: 'white',
-                              borderRadius: 0,
-                              width: Dimensions.get('window').width * .90,
-                          }}
+                          style={styles.searchLarge}
                           value={this.state.searchQuery}
                           placeholder="Search here">
                         </TextInput>
                     </View>
-                  <View style={{
-                      height: 45,
-                      backgroundColor: 'white',
-                      borderWidth: 3,
-                      borderColor: 'white',
-                      marginLeft: -10,
-                      paddingLeft: 5,
-                      width: Dimensions.get('window').width * .10,
-                  }}>
-                <TouchableWithoutFeedback
-                  onPress={() => this.clearSearchQuery()}
-                >
-                      <View>
-                        {image}
-                      </View>
-						    </TouchableWithoutFeedback>
-					      </View>
+                    <View style={styles.searchSmall}>
+                        <TouchableWithoutFeedback
+                          onPress={() => this.clearSearchQuery()}>
+                              <View>
+                                  {image}
+                              </View>
+                        </TouchableWithoutFeedback>
+					          </View>
                 </View>
 
                 {errorCtrl}
@@ -282,9 +265,9 @@ class Audit extends Component {
                       }
                 >
                   <ListView
-                        enableEmptySections={true}
-                        dataSource={this.state.dataSource}
-                        renderRow={this.renderRow.bind(this)}
+                    enableEmptySections={true}
+                    dataSource={this.state.dataSource}
+                    renderRow={this.renderRow.bind(this)}
                   />
                 </ScrollView>
 
@@ -317,6 +300,24 @@ const styles = StyleSheet.create({
         backgroundColor: 'darkblue',
         borderWidth: 0,
         borderColor: 'whitesmoke'
+    },
+    searchLarge:{
+        height: 45,
+        padding: 5,
+        backgroundColor: 'white',
+        borderWidth: 3,
+        borderColor: 'white',
+        borderRadius: 0,
+        width: Dimensions.get('window').width * .90,
+    },
+    searchSmall:{
+        height: 45,
+        backgroundColor: 'white',
+        borderWidth: 3,
+        borderColor: 'white',
+        marginLeft: -5,
+        paddingLeft: 5,
+        width: Dimensions.get('window').width * .10,
     },
     textSmall: {
         fontSize: 16,

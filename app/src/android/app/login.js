@@ -114,18 +114,7 @@ class Login extends Component {
                             username: text,
                             badCredentials: false
                         })}
-                        style={{
-                            height: 50,
-                            width: this.state.width * .9,
-                            marginTop: 10,
-                            padding: 4,
-                            fontSize: 18,
-                            borderWidth: 1,
-                            borderColor: 'lightgray',
-                            borderRadius: 5,
-                            color: 'black',
-                            backgroundColor: 'white'
-                        }}
+                        style={styles.loginInput}
                         value={this.state.username}
                         editable = {!this.state.showProgress}
                         placeholder='Login'>
@@ -137,18 +126,7 @@ class Login extends Component {
                             password: text,
                             badCredentials: false
                         })}
-                        style={{
-                            height: 50,
-                            width: this.state.width * .9,
-                            marginTop: 10,
-                            padding: 4,
-                            fontSize: 18,
-                            borderWidth: 1,
-                            borderColor: 'lightgray',
-                            borderRadius: 5,
-                            color: 'black',
-                            backgroundColor: 'white'
-                        }}
+                        style={styles.loginInput}
                         value={this.state.password}
                         editable = {!this.state.showProgress}
                         placeholder='Password'
@@ -187,13 +165,13 @@ const styles = StyleSheet.create({
         height: 150,
         paddingTop: 140,
         borderRadius: 20,
-		//marginBottom: 10
+		    //marginBottom: 10
     },
     headerContainer: {
         justifyContent: 'center',
         alignItems: 'center',
-		marginBottom: 10,
-		marginTop: -10
+        marginBottom: 10,
+        marginTop: -10
     },
     heading: {
         fontSize: 30,
@@ -202,8 +180,21 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         textAlign: 'center'
     },
+    loginInput: {
+        height: 50,
+        width: Dimensions.get("window").width * .90,
+        marginTop: 10,
+        padding: 4,
+        fontSize: 18,
+        borderWidth: 1,
+        borderColor: 'lightgray',
+        borderRadius: 5,
+        color: 'black',
+        backgroundColor: 'white'
+    },
     button: {
         height: 50,
+        width: Dimensions.get("window").width * .92,
         //backgroundColor: '#48BBEC',
         backgroundColor: 'darkblue',
         borderColor: '#48BBEC',

@@ -271,8 +271,7 @@ class Users extends Component {
                     <View>
                         <TouchableHighlight
                             onPress={()=> this.addItem()}
-                            underlayColor='darkblue'
-                        >
+                            underlayColor='darkblue'>
                             <View>
                                 <Text style={styles.textSmall}>
                                     New
@@ -286,31 +285,14 @@ class Users extends Component {
                     <View>
                         <TextInput
                             onChangeText={this.onChangeText.bind(this)}
-                            style={{
-                                height: 45,
-                                padding: 5,
-                                backgroundColor: 'white',
-                                borderWidth: 3,
-                                borderColor: 'white',
-                                borderRadius: 0,
-                                width: Dimensions.get('window').width * .90,
-                            }}
+                            style={styles.searchLarge}
                             value={this.state.searchQuery}
                             placeholder="Search here">
                         </TextInput>
                     </View>
-                    <View style={{
-                        height: 45,
-                        backgroundColor: 'white',
-                        borderWidth: 3,
-                        borderColor: 'white',
-                        marginLeft: -5,
-                        paddingLeft: 5,
-                        width: Dimensions.get('window').width * .10,
-                    }}>
+                    <View style={styles.searchSmall}>
                         <TouchableWithoutFeedback
-                            onPress={() => this.clearSearchQuery()}
-                        >
+                            onPress={() => this.clearSearchQuery()}>
                             <View>
                                 {image}
                             </View>
@@ -366,6 +348,24 @@ const styles = StyleSheet.create({
         backgroundColor: 'darkblue',
         borderWidth: 0,
         borderColor: 'whitesmoke'
+    },
+    searchLarge:{
+        height: 45,
+        padding: 5,
+        backgroundColor: 'white',
+        borderWidth: 3,
+        borderColor: 'white',
+        borderRadius: 0,
+        width: Dimensions.get('window').width * .90,
+    },
+    searchSmall:{
+        height: 45,
+        backgroundColor: 'white',
+        borderWidth: 3,
+        borderColor: 'white',
+        marginLeft: -5,
+        paddingLeft: 5,
+        width: Dimensions.get('window').width * .10,
     },
     textSmall: {
         fontSize: 16,

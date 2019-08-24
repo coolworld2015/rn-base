@@ -183,6 +183,7 @@ const styles = StyleSheet.create({
     },
     button: {
         height: 50,
+        width: Dimensions.get("window").width * .92,
         //backgroundColor: '#48BBEC',
         backgroundColor: 'darkblue',
         borderColor: '#48BBEC',

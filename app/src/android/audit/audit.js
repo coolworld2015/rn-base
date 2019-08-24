@@ -230,61 +230,44 @@ class Audit extends Component {
                 </View>
 
                 <View style={styles.iconForm}>
-					<View>
-						<TextInput
-							underlineColorAndroid='rgba(0,0,0,0)'
-							onChangeText={this.onChangeText.bind(this)}
-							style={{
-                  height: 45,
-                  padding: 5,
-                  backgroundColor: 'white',
-                  borderWidth: 3,
-                  borderColor: 'white',
-                  borderRadius: 0,
-                  width: this.state.width * .90,
-							}}
-							value={this.state.searchQuery}
-							placeholder="Search here">
-						</TextInput>
-					</View>
-					<View style={{
-              height: 45,
-              backgroundColor: 'white',
-              borderWidth: 3,
-              borderColor: 'white',
-              marginLeft: -10,
-              paddingLeft: 5,
-              width: this.state.width * .10,
-					}}>
-						<TouchableWithoutFeedback
-							onPress={() => this.clearSearchQuery()}
-						>
-							<View>
-								{image}
-							</View>
-						</TouchableWithoutFeedback>
-					</View>
+					          <View>
+                        <TextInput
+                          underlineColorAndroid='rgba(0,0,0,0)'
+                          onChangeText={this.onChangeText.bind(this)}
+                          style={styles.searchLarge}
+                          value={this.state.searchQuery}
+                          placeholder="Search here">
+                        </TextInput>
+					          </View>
+                    <View style={styles.searchSmall}>
+                        <TouchableWithoutFeedback
+                          onPress={() => this.clearSearchQuery()}>
+                            <View>
+                                {image}
+                            </View>
+						            </TouchableWithoutFeedback>
+					          </View>
                 </View>
 
                 {errorCtrl}
 
                 {loader}
 
-				<ScrollView onScroll={this.refreshData.bind(this)} scrollEventThrottle={16}
-					refreshControl={
-						<RefreshControl
-							enabled={true}
-							refreshing={this.state.refreshing}
-							onRefresh={this.refreshDataAndroid.bind(this)}
-						/>
-					}
-				>
-					<ListView
-						enableEmptySections={true}
-						dataSource={this.state.dataSource}
-						renderRow={this.renderRow.bind(this)}
-					/>
-				</ScrollView>
+                <ScrollView onScroll={this.refreshData.bind(this)} scrollEventThrottle={16}
+                    refreshControl={
+                        <RefreshControl
+                          enabled={true}
+                          refreshing={this.state.refreshing}
+                          onRefresh={this.refreshDataAndroid.bind(this)}
+                        />
+                  }
+                >
+                  <ListView
+                    enableEmptySections={true}
+                    dataSource={this.state.dataSource}
+                    renderRow={this.renderRow.bind(this)}
+                  />
+                </ScrollView>
 
                 <View>
                     <Text style={styles.countFooter}>
@@ -302,12 +285,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         backgroundColor: 'white'
     },
-	iconForm: {
-		flexDirection: 'row',
-		//borderColor: 'lightgray',
-		borderColor: 'darkblue',
-		borderWidth: 3
-	},
+    iconForm: {
+        flexDirection: 'row',
+        //borderColor: 'lightgray',
+        borderColor: 'darkblue',
+        borderWidth: 3
+    },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
@@ -315,6 +298,24 @@ const styles = StyleSheet.create({
         backgroundColor: 'darkblue',
         borderWidth: 0,
         borderColor: 'whitesmoke'
+    },
+    searchLarge:{
+        height: 45,
+        padding: 5,
+        backgroundColor: 'white',
+        borderWidth: 3,
+        borderColor: 'white',
+        borderRadius: 0,
+        width: Dimensions.get('window').width * .90,
+    },
+    searchSmall:{
+        height: 45,
+        backgroundColor: 'white',
+        borderWidth: 3,
+        borderColor: 'white',
+        marginLeft: -5,
+        paddingLeft: 5,
+        width: Dimensions.get('window').width * .10,
     },
     textSmall: {
         fontSize: 16,
