@@ -12,7 +12,6 @@ import {
     TextInput,
     Image,
     Dimensions,
-    RefreshControl,
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -58,7 +57,6 @@ class Phones extends Component {
         })
             .then((response) => response.json())
             .then((responseData) => {
-
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(responseData.sort(this.sort).slice(0, 15)),
                     resultsCount: responseData.length,
@@ -117,6 +115,20 @@ class Phones extends Component {
             return;
         }
 
+        if (event.nativeEvent.contentOffset.y <= -100) {
+            this.setState({
+                showProgress: true,
+                resultsCount: 0,
+                recordsCount: 25,
+                positionY: 0,
+                searchQuery: '',
+            });
+
+            setTimeout(() => {
+                this.getItems();
+            }, 300);
+        }
+
         if (this.state.filteredItems === undefined) {
             return;
         }
@@ -126,11 +138,11 @@ class Phones extends Component {
         positionY = this.state.positionY;
         items = this.state.filteredItems.slice(0, recordsCount);
 
-        if (event.nativeEvent.contentOffset.y >= positionY) {
+        if (event.nativeEvent.contentOffset.y >= positionY - 10) {
             this.setState({
                 dataSource: this.state.dataSource.cloneWithRows(items),
                 recordsCount: recordsCount + 10,
-                positionY: positionY + 400,
+                positionY: positionY + 500,
             });
         }
     }
@@ -150,15 +162,6 @@ class Phones extends Component {
         });
     }
 
-    refreshDataAndroid() {
-        this.setState({
-            showProgress: true,
-            resultsCount: 0,
-        });
-
-        this.getItems();
-    }
-
     goBack() {
         this.props.navigator.pop();
     }
@@ -175,7 +178,7 @@ class Phones extends Component {
     }
 
     onMenu() {
-        appConfig.drawer.openDrawer();
+        //appConfig.drawer.openDrawer();
     }
 
     render() {
@@ -268,15 +271,7 @@ class Phones extends Component {
                 {loader}
 
                 <ScrollView
-                    onScroll={this.refreshData.bind(this)}
-                    scrollEventThrottle={16}
-                    refreshControl={
-                        <RefreshControl
-                            enabled={true}
-                            refreshing={this.state.refreshing}
-                            onRefresh={this.refreshDataAndroid.bind(this)}
-                        />
-                    }>
+                    onScroll={this.refreshData.bind(this)} scrollEventThrottle={16}>
                     <ListView
                         enableEmptySections={true}
                         dataSource={this.state.dataSource}

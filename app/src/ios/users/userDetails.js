@@ -185,11 +185,7 @@ class UserDetails extends Component {
                 </View>
 
                 <ScrollView keyboardShouldPersistTaps='always'>
-                    <View style={{
-                        flex: 1,
-                        padding: 10,
-                        justifyContent: 'flex-start',
-                    }}>
+                    <View style={styles.inputBlock}>
 
                         <TextInput
                             onChangeText={(text) => this.setState({
@@ -240,7 +236,7 @@ class UserDetails extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
+        )
     }
 }
 
@@ -304,11 +300,16 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         color: 'black',
     },
+    inputBlock: {
+        flex: 1,
+        padding: 10,
+        justifyContent: 'flex-start',
+    },
     button: {
         height: 50,
         backgroundColor: 'darkblue',
         alignSelf: 'stretch',
-        marginTop: 10,
+        marginTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5,
@@ -323,7 +324,7 @@ const styles = StyleSheet.create({
     },
     error: {
         color: 'red',
-        paddingTop: 10,
+        paddingTop: 15,
         textAlign: 'center',
     },
 });

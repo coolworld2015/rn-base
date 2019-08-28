@@ -120,11 +120,7 @@ class UserAdd extends Component {
                 </View>
 
                 <ScrollView keyboardShouldPersistTaps='always'>
-                    <View style={{
-                        flex: 1,
-                        padding: 10,
-                        justifyContent: 'flex-start',
-                    }}>
+                    <View style={styles.inputBlock}>
 
                         <TextInput
                             onChangeText={(text) => this.setState({
@@ -193,18 +189,18 @@ const styles = StyleSheet.create({
         borderColor: 'whitesmoke',
     },
     textSmall: {
-        fontSize: 20,
+        fontSize: 16,
         textAlign: 'center',
         margin: 16,
         fontWeight: 'bold',
         color: 'white',
     },
     textLarge: {
-        fontSize: 24,
+        fontSize: 20,
         textAlign: 'center',
         margin: 10,
         marginTop: 12,
-        marginRight: 40,
+        marginRight: 20,
         fontWeight: 'bold',
         color: 'white',
     },
@@ -239,18 +235,23 @@ const styles = StyleSheet.create({
         borderRadius: 5,
         color: 'black',
     },
+    inputBlock: {
+        flex: 1,
+        padding: 10,
+        justifyContent: 'flex-start',
+    },
     button: {
         height: 50,
         backgroundColor: 'darkblue',
         alignSelf: 'stretch',
-        marginTop: 10,
+        marginTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5,
     },
     buttonText: {
         color: '#fff',
-        fontSize: 24,
+        fontSize: 20,
         fontWeight: 'bold',
     },
     loader: {
@@ -258,7 +259,7 @@ const styles = StyleSheet.create({
     },
     error: {
         color: 'red',
-        paddingTop: 10,
+        paddingTop: 15,
         textAlign: 'center',
     },
 });
