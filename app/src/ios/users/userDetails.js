@@ -233,6 +233,7 @@ class UserDetails extends Component {
                         <ActivityIndicator
                             animating={this.state.showProgress}
                             size="large"
+                            color="darkblue"
                             style={styles.loader}
                         />
                     </View>
