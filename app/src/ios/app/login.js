@@ -11,7 +11,7 @@ import {
     ActivityIndicator,
     TextInput,
     Dimensions,
-    KeyboardAvoidingView,
+    KeyboardAvoidingView
 } from 'react-native';
 
 class Login extends Component {
@@ -21,7 +21,7 @@ class Login extends Component {
         this.state = {
             showProgress: false,
             username: '1',
-            password: '1',
+            password: '1'
         };
     }
 
@@ -29,13 +29,13 @@ class Login extends Component {
         if (this.state.username === undefined || this.state.username === '' ||
             this.state.password === undefined || this.state.password === '') {
             this.setState({
-                badCredentials: true,
+                badCredentials: true
             });
             return;
         }
 
         this.setState({
-            showProgress: true,
+            showProgress: true
         });
 
         fetch(appConfig.url + 'api/login', {
@@ -43,32 +43,32 @@ class Login extends Component {
             body: JSON.stringify({
                 name: this.state.username,
                 pass: this.state.password,
-                description: 'IOS',
+                description: 'IOS'
             }),
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
+                'Content-Type': 'application/json'
+            }
         })
             .then((response) => response.json())
             .then((responseData) => {
                 if (responseData.token) {
                     appConfig.access_token = responseData.token;
                     this.setState({
-                        badCredentials: false,
+                        badCredentials: false
                     });
                     this.props.onLogin();
                 } else {
                     this.setState({
                         badCredentials: true,
-                        showProgress: false,
+                        showProgress: false
                     });
                 }
             })
             .catch((error) => {
                 this.setState({
                     badCredentials: true,
-                    showProgress: false,
+                    showProgress: false
                 });
             });
     }
@@ -100,7 +100,7 @@ class Login extends Component {
                         <TextInput
                             onChangeText={(text) => this.setState({
                                 username: text,
-                                badCredentials: false,
+                                badCredentials: false
                             })}
                             value={this.state.username}
                             editable={!this.state.showProgress}
@@ -111,7 +111,7 @@ class Login extends Component {
                         <TextInput
                             onChangeText={(text) => this.setState({
                                 password: text,
-                                badCredentials: false,
+                                badCredentials: false
                             })}
                             value={this.state.password}
                             editable={!this.state.showProgress}
@@ -149,27 +149,27 @@ const styles = StyleSheet.create({
         paddingTop: 40,
         padding: 10,
         alignItems: 'center',
-        flex: 1,
+        flex: 1
     },
     logo: {
         width: 150,
         height: 150,
         paddingTop: 140,
         borderRadius: 20,
-        marginTop: 10,
+        marginTop: 10
     },
     headerContainer: {
         justifyContent: 'center',
         alignItems: 'center',
         marginBottom: 10,
-        marginTop: -10,
+        marginTop: -10
     },
     heading: {
         fontSize: 30,
         marginTop: 10,
         color: 'black',
         fontWeight: 'bold',
-        textAlign: 'center',
+        textAlign: 'center'
     },
     loginInput: {
         height: 50,
@@ -181,7 +181,7 @@ const styles = StyleSheet.create({
         borderColor: 'lightgray',
         borderRadius: 5,
         color: 'black',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     button: {
         height: 50,
@@ -193,21 +193,21 @@ const styles = StyleSheet.create({
         margin: 5,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 5
     },
     buttonText: {
         color: '#fff',
         fontSize: 24,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     loader: {
-        marginTop: 40,
+        marginTop: 40
     },
     error: {
         color: 'red',
         paddingTop: 10,
-        textAlign: 'center',
-    },
+        textAlign: 'center'
+    }
 });
 
 export default Login;

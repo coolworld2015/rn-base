@@ -10,7 +10,7 @@ import {
     ActivityIndicator,
     TextInput,
     TouchableWithoutFeedback,
-    Alert,
+    Alert
 } from 'react-native';
 
 class UserDetails extends Component {
@@ -22,7 +22,7 @@ class UserDetails extends Component {
             name: appConfig.users.item.name,
             pass: appConfig.users.item.pass,
             description: appConfig.users.item.description,
-            showProgress: false,
+            showProgress: false
         };
     }
 
@@ -30,13 +30,13 @@ class UserDetails extends Component {
         if (this.state.name === undefined || this.state.pass === '' ||
             this.state.description === undefined || this.state.description === '') {
             this.setState({
-                invalidValue: true,
+                invalidValue: true
             });
             return;
         }
 
         this.setState({
-            showProgress: true,
+            showProgress: true
         });
 
         fetch(appConfig.url + 'api/users/update', {
@@ -46,12 +46,12 @@ class UserDetails extends Component {
                 name: this.state.name,
                 pass: this.state.pass,
                 description: this.state.description,
-                authorization: appConfig.access_token,
+                authorization: appConfig.access_token
             }),
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
+                'Content-Type': 'application/json'
+            }
         })
             .then((response) => response.json())
             .then((responseData) => {
@@ -59,18 +59,18 @@ class UserDetails extends Component {
                     this.props.navigation.navigate('Users', {refresh: true});
                 } else {
                     this.setState({
-                        badCredentials: true,
+                        badCredentials: true
                     });
                 }
             })
             .catch((error) => {
                 this.setState({
-                    serverError: true,
+                    serverError: true
                 });
             })
             .finally(() => {
                 this.setState({
-                    showProgress: false,
+                    showProgress: false
                 });
             });
     }
@@ -84,28 +84,28 @@ class UserDetails extends Component {
                 {
                     text: 'OK', onPress: () => {
                         this.deleteItem();
-                    },
-                },
-            ],
+                    }
+                }
+            ]
         );
     }
 
     deleteItem() {
         this.setState({
             showProgress: true,
-            bugANDROID: ' ',
+            bugANDROID: ' '
         });
 
         fetch(appConfig.url + 'api/users/delete', {
             method: 'post',
             body: JSON.stringify({
                 id: this.state.id,
-                authorization: appConfig.access_token,
+                authorization: appConfig.access_token
             }),
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
+                'Content-Type': 'application/json'
+            }
         })
             .then((response) => response.json())
             .then((responseData) => {
@@ -113,18 +113,18 @@ class UserDetails extends Component {
                     this.props.navigation.navigate('Users', {refresh: true});
                 } else {
                     this.setState({
-                        badCredentials: true,
+                        badCredentials: true
                     });
                 }
             })
             .catch((error) => {
                 this.setState({
-                    serverError: true,
+                    serverError: true
                 });
             })
             .finally(() => {
                 this.setState({
-                    showProgress: false,
+                    showProgress: false
                 });
             });
     }
@@ -190,7 +190,7 @@ class UserDetails extends Component {
                         <TextInput
                             onChangeText={(text) => this.setState({
                                 name: text,
-                                invalidValue: false,
+                                invalidValue: false
                             })}
                             style={styles.formInputBold}
                             value={this.state.name}
@@ -200,7 +200,7 @@ class UserDetails extends Component {
                         <TextInput
                             onChangeText={(text) => this.setState({
                                 pass: text,
-                                invalidValue: false,
+                                invalidValue: false
                             })}
                             style={styles.loginInput}
                             value={this.state.pass}
@@ -211,7 +211,7 @@ class UserDetails extends Component {
                             multiline={true}
                             onChangeText={(text) => this.setState({
                                 description: text,
-                                invalidValue: false,
+                                invalidValue: false
                             })}
                             style={styles.formInputArea}
                             value={this.state.description}
@@ -223,7 +223,9 @@ class UserDetails extends Component {
                         <TouchableHighlight
                             onPress={() => this.updateItem()}
                             style={styles.button}>
-                            <Text style={styles.buttonText}>Submit</Text>
+                            <Text style={styles.buttonText}>
+                                Submit
+                            </Text>
                         </TouchableHighlight>
 
                         {errorCtrl}
@@ -236,7 +238,7 @@ class UserDetails extends Component {
                     </View>
                 </ScrollView>
             </View>
-        )
+        );
     }
 }
 
@@ -244,21 +246,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'darkblue',
         borderWidth: 0,
-        borderColor: 'whitesmoke',
+        borderColor: 'whitesmoke'
     },
     textSmall: {
         fontSize: 16,
         textAlign: 'center',
         margin: 16,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     textLarge: {
         fontSize: 20,
@@ -267,7 +269,7 @@ const styles = StyleSheet.create({
         marginTop: 12,
         marginRight: 20,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     formInputBold: {
         height: 50,
@@ -278,7 +280,7 @@ const styles = StyleSheet.create({
         borderColor: 'lightgray',
         borderRadius: 5,
         color: 'black',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     loginInput: {
         height: 50,
@@ -288,7 +290,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'lightgray',
         borderRadius: 5,
-        color: 'black',
+        color: 'black'
     },
     formInputArea: {
         height: 100,
@@ -298,12 +300,12 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'lightgray',
         borderRadius: 5,
-        color: 'black',
+        color: 'black'
     },
     inputBlock: {
         flex: 1,
         padding: 10,
-        justifyContent: 'flex-start',
+        justifyContent: 'flex-start'
     },
     button: {
         height: 50,
@@ -312,21 +314,21 @@ const styles = StyleSheet.create({
         marginTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 5
     },
     buttonText: {
         color: '#fff',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     loader: {
-        marginTop: 20,
+        marginTop: 20
     },
     error: {
         color: 'red',
         paddingTop: 15,
-        textAlign: 'center',
-    },
+        textAlign: 'center'
+    }
 });
 
 export default UserDetails;

@@ -6,7 +6,7 @@ import {
     Text,
     View,
     TouchableHighlight,
-    DrawerLayoutAndroid,
+    DrawerLayoutAndroid
 } from 'react-native';
 
 import NavigationExperimental from 'react-native-deprecated-custom-components';
@@ -96,7 +96,7 @@ class PhonesTab extends Component {
         super(props);
         this.routes = [
             {title: 'Phones', index: 0},
-            {title: 'Phones Details', index: 1},
+            {title: 'Phones Details', index: 1}
         ];
     }
 
@@ -136,7 +136,7 @@ class UsersTab extends Component {
         this.routes = [
             {title: 'Users', index: 0},
             {title: 'Users Details', index: 1},
-            {title: 'Add User', index: 2},
+            {title: 'Add User', index: 2}
         ];
     }
 
@@ -173,7 +173,7 @@ class AuditTab extends Component {
         this.routes = [
             {title: 'Audit', index: 0},
             {title: 'Audit Details', index: 1},
-            {title: 'Add Audit', index: 2},
+            {title: 'Add Audit', index: 2}
         ];
     }
 
@@ -217,26 +217,26 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     iconForm: {
         flexDirection: 'row',
         borderColor: 'darkblue',
-        borderWidth: 3,
+        borderWidth: 3
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'darkblue',
         borderWidth: 0,
-        borderColor: 'whitesmoke',
+        borderColor: 'whitesmoke'
     },
     textSmall: {
         fontSize: 16,
         textAlign: 'center',
         margin: 14,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     textLarge: {
         fontSize: 20,
@@ -246,7 +246,7 @@ const styles = StyleSheet.create({
         paddingLeft: 20,
         marginLeft: -10,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     textInput: {
         height: 45,
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderWidth: 3,
         borderColor: 'lightgray',
-        borderRadius: 0,
+        borderRadius: 0
     },
     row: {
         flex: 1,
@@ -264,12 +264,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: '#D7D7D7',
         borderBottomWidth: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#fff'
     },
     rowText: {
         backgroundColor: '#fff',
         color: 'black',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     countFooter: {
         fontSize: 16,
@@ -278,16 +278,16 @@ const styles = StyleSheet.create({
         borderColor: '#D7D7D7',
         backgroundColor: 'darkblue',
         color: 'white',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     loader: {
         justifyContent: 'center',
-        height: 100,
+        height: 100
     },
     error: {
         color: 'red',
         paddingTop: 10,
-        textAlign: 'center',
+        textAlign: 'center'
     },
     button: {
         height: 50,
@@ -297,13 +297,13 @@ const styles = StyleSheet.create({
         marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 5
     },
     buttonText: {
         color: '#fff',
         fontSize: 20,
-        fontWeight: 'bold',
-    },
+        fontWeight: 'bold'
+    }
 });
 
 export default AppContainer;

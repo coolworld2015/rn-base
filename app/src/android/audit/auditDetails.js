@@ -8,7 +8,7 @@ import {
     TouchableHighlight,
     TouchableWithoutFeedback,
     ScrollView,
-    BackHandler,
+    BackHandler
 } from 'react-native';
 
 class AuditDetails extends Component {
@@ -23,7 +23,7 @@ class AuditDetails extends Component {
         });
 
         this.state = {
-            name: '',
+            name: ''
         };
 
         if (props.data) {
@@ -35,7 +35,7 @@ class AuditDetails extends Component {
                 date: props.data.date,
                 ip: ip[3],
                 description: props.data.description,
-                showProgress: false,
+                showProgress: false
             };
         }
     }
@@ -144,21 +144,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'darkblue',
         borderWidth: 0,
-        borderColor: 'whitesmoke',
+        borderColor: 'whitesmoke'
     },
     textSmall: {
         fontSize: 16,
         textAlign: 'center',
         margin: 16,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     textLarge: {
         fontSize: 20,
@@ -167,36 +167,36 @@ const styles = StyleSheet.create({
         marginTop: 12,
         marginRight: 40,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     itemWrap: {
         flex: 1,
         flexDirection: 'column',
-        flexWrap: 'wrap',
+        flexWrap: 'wrap'
     },
     form: {
         flex: 1,
         padding: 10,
         justifyContent: 'flex-start',
         paddingBottom: 130,
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     itemBlock: {
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     itemTextBold: {
         fontSize: 18,
         textAlign: 'left',
         margin: 5,
         fontWeight: 'bold',
-        color: 'black',
+        color: 'black'
     },
     itemText: {
         fontSize: 18,
         textAlign: 'left',
         margin: 5,
         marginLeft: 2,
-        color: 'black',
+        color: 'black'
     },
     button: {
         height: 50,
@@ -206,21 +206,21 @@ const styles = StyleSheet.create({
         marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 5
     },
     buttonText: {
         color: '#fff',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     loader: {
-        marginTop: 20,
+        marginTop: 20
     },
     error: {
         color: 'red',
         paddingTop: 10,
-        textAlign: 'center',
-    },
+        textAlign: 'center'
+    }
 });
 
 export default AuditDetails;

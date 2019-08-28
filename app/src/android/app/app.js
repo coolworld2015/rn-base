@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {
-    BackHandler,
+    BackHandler
 } from 'react-native';
 
 console.disableYellowBox = true;
@@ -22,7 +22,7 @@ class App extends Component {
         });
 
         this.state = {
-            isLoggedIn: false,
+            isLoggedIn: false
         };
 
         window.appConfig = {
@@ -32,18 +32,18 @@ class App extends Component {
             phones: {
                 refresh: true,
                 items: [],
-                item: {},
+                item: {}
             },
             users: {
                 refresh: true,
                 items: [],
-                item: {},
+                item: {}
             },
             audit: {
                 refresh: true,
                 items: [],
-                item: {},
-            },
+                item: {}
+            }
         };
     }
 

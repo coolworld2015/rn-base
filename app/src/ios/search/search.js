@@ -10,7 +10,7 @@ import {
     ScrollView,
     TextInput,
     Switch,
-    Dimensions,
+    Dimensions
 } from 'react-native';
 
 class Search extends Component {
@@ -22,14 +22,14 @@ class Search extends Component {
             eventSwitchTitle: false,
             eventSwitchBase: true,
             textSwitchBase: 'Search by name',
-            bugANDROID: '',
+            bugANDROID: ''
         };
     }
 
     clearSearch() {
         this.setState({
             searchQuery: '',
-            invalidValue: false,
+            invalidValue: false
         });
     }
 
@@ -37,7 +37,7 @@ class Search extends Component {
         if (this.state.searchQuery === undefined ||
             this.state.searchQuery === '') {
             this.setState({
-                invalidValue: true,
+                invalidValue: true
             });
             return;
         }
@@ -45,19 +45,19 @@ class Search extends Component {
         this.props.navigation.navigate('SearchResults', {
             data: {
                 searchQuery: this.state.searchQuery,
-                searchType: this.state.textSwitchBase,
-            },
+                searchType: this.state.textSwitchBase
+            }
         });
     }
 
     toggleTypeChange() {
         if (this.state.eventSwitchBase) {
             this.setState({
-                textSwitchBase: 'Search by phone',
+                textSwitchBase: 'Search by phone'
             });
         } else {
             this.setState({
-                textSwitchBase: 'Search by name',
+                textSwitchBase: 'Search by name'
             });
         }
     }
@@ -125,7 +125,7 @@ class Search extends Component {
                                     onValueChange={(value) => {
                                         this.toggleTypeChange();
                                         this.setState({
-                                            eventSwitchBase: value,
+                                            eventSwitchBase: value
                                         });
                                     }}
                                     value={this.state.eventSwitchBase}
@@ -138,7 +138,7 @@ class Search extends Component {
                                 underlineColorAndroid='rgba(0,0,0,0)'
                                 onChangeText={(text) => this.setState({
                                     searchQuery: text,
-                                    invalidValue: false,
+                                    invalidValue: false
                                 })}
                                 value={this.state.searchQuery}
                                 style={styles.search}
@@ -167,28 +167,28 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'darkblue',
         borderWidth: 0,
-        borderColor: 'whitesmoke',
+        borderColor: 'whitesmoke'
     },
     search: {
         height: 50,
         width: Dimensions.get('window').width * .94,
         fontSize: 18,
         color: 'darkblue',
-        paddingTop: 0,
+        paddingTop: 0
     },
     textSmall: {
         fontSize: 16,
         textAlign: 'center',
         margin: 16,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     textLarge: {
         fontSize: 20,
@@ -196,14 +196,14 @@ const styles = StyleSheet.create({
         margin: 10,
         marginRight: 20,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     scrollBlock: {
         flex: 1,
         padding: 10,
         marginTop: 10,
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     switchBlock: {
         height: 50,
@@ -212,17 +212,17 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         justifyContent: 'space-between',
-        borderRadius: 5,
+        borderRadius: 5
     },
     switchItem: {
         marginTop: 10,
-        margin: 10,
+        margin: 10
     },
     switchItemText: {
         fontSize: 18,
         marginTop: 14,
         margin: 10,
-        color: 'darkblue',
+        color: 'darkblue'
     },
     inputBlock: {
         height: 50,
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         borderRadius: 5,
-        paddingLeft: 6,
+        paddingLeft: 6
     },
     button: {
         height: 50,
@@ -243,22 +243,22 @@ const styles = StyleSheet.create({
         marginTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 5
     },
     buttonText: {
         color: '#fff',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     loader: {
         justifyContent: 'center',
-        height: 100,
+        height: 100
     },
     error: {
         color: 'red',
         paddingTop: 10,
-        textAlign: 'center',
-    },
+        textAlign: 'center'
+    }
 });
 
 export default Search;

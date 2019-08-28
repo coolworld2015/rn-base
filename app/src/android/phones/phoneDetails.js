@@ -8,7 +8,7 @@ import {
     TouchableHighlight,
     TouchableWithoutFeedback,
     ScrollView,
-    BackHandler,
+    BackHandler
 } from 'react-native';
 
 class PhoneDetails extends Component {
@@ -23,7 +23,7 @@ class PhoneDetails extends Component {
         });
 
         this.state = {
-            name: '',
+            name: ''
         };
 
         if (props.data) {
@@ -34,7 +34,7 @@ class PhoneDetails extends Component {
                 street: props.data.street,
                 house: props.data.house,
                 apt: props.data.apt,
-                index: props.data.index,
+                index: props.data.index
             };
         }
     }
@@ -178,21 +178,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'darkblue',
         borderWidth: 0,
-        borderColor: 'whitesmoke',
+        borderColor: 'whitesmoke'
     },
     textSmall: {
         fontSize: 16,
         textAlign: 'center',
         margin: 16,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     textLarge: {
         fontSize: 20,
@@ -201,36 +201,36 @@ const styles = StyleSheet.create({
         marginTop: 12,
         marginRight: 40,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     form: {
         flex: 1,
         padding: 10,
         justifyContent: 'flex-start',
         paddingBottom: 130,
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     itemBlock: {
-        flexDirection: 'row',
+        flexDirection: 'row'
     },
     itemWrap: {
         flex: 1,
         flexDirection: 'column',
-        flexWrap: 'wrap',
+        flexWrap: 'wrap'
     },
     itemTextBold: {
         fontSize: 18,
         textAlign: 'left',
         margin: 5,
         fontWeight: 'bold',
-        color: 'black',
+        color: 'black'
     },
     itemText: {
         fontSize: 18,
         textAlign: 'left',
         margin: 5,
         marginLeft: 2,
-        color: 'black',
+        color: 'black'
     },
     button: {
         height: 50,
@@ -240,21 +240,21 @@ const styles = StyleSheet.create({
         marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 5
     },
     buttonText: {
         color: '#fff',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     loader: {
-        marginTop: 20,
+        marginTop: 20
     },
     error: {
         color: 'red',
         paddingTop: 10,
-        textAlign: 'center',
-    },
+        textAlign: 'center'
+    }
 });
 
 export default PhoneDetails;

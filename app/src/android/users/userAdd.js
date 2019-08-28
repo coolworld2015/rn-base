@@ -10,7 +10,7 @@ import {
     ScrollView,
     ActivityIndicator,
     TextInput,
-    BackHandler,
+    BackHandler
 } from 'react-native';
 
 class UserAdd extends Component {
@@ -26,7 +26,7 @@ class UserAdd extends Component {
 
         this.state = {
             showProgress: false,
-            bugANDROID: '',
+            bugANDROID: ''
         };
     }
 
@@ -35,14 +35,14 @@ class UserAdd extends Component {
             this.state.pass === undefined || this.state.pass === '' ||
             this.state.description === undefined || this.state.description === '') {
             this.setState({
-                invalidValue: true,
+                invalidValue: true
             });
             return;
         }
 
         this.setState({
             showProgress: true,
-            bugANDROID: ' ',
+            bugANDROID: ' '
         });
 
         fetch(appConfig.url + 'api/users/add', {
@@ -52,12 +52,12 @@ class UserAdd extends Component {
                 name: this.state.name,
                 pass: this.state.pass,
                 description: this.state.description,
-                authorization: appConfig.access_token,
+                authorization: appConfig.access_token
             }),
             headers: {
                 'Accept': 'application/json',
-                'Content-Type': 'application/json',
-            },
+                'Content-Type': 'application/json'
+            }
         })
             .then((response) => response.json())
             .then((responseData) => {
@@ -66,12 +66,12 @@ class UserAdd extends Component {
             })
             .catch((error) => {
                 this.setState({
-                    serverError: true,
+                    serverError: true
                 });
             })
             .finally(() => {
                 this.setState({
-                    showProgress: false,
+                    showProgress: false
                 });
             });
     }
@@ -144,7 +144,7 @@ class UserAdd extends Component {
                             underlineColorAndroid='rgba(0,0,0,0)'
                             onChangeText={(text) => this.setState({
                                 name: text,
-                                invalidValue: false,
+                                invalidValue: false
                             })}
                             style={styles.formInput}
                             value={this.state.name}
@@ -155,7 +155,7 @@ class UserAdd extends Component {
                             underlineColorAndroid='rgba(0,0,0,0)'
                             onChangeText={(text) => this.setState({
                                 pass: text,
-                                invalidValue: false,
+                                invalidValue: false
                             })}
                             style={styles.formInput}
                             value={this.state.pass}
@@ -167,7 +167,7 @@ class UserAdd extends Component {
                             multiline={true}
                             onChangeText={(text) => this.setState({
                                 description: text,
-                                invalidValue: false,
+                                invalidValue: false
                             })}
                             style={styles.formInputArea}
                             value={this.state.description}
@@ -200,21 +200,21 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'darkblue',
         borderWidth: 0,
-        borderColor: 'whitesmoke',
+        borderColor: 'whitesmoke'
     },
     textSmall: {
         fontSize: 16,
         textAlign: 'center',
         margin: 16,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     textLarge: {
         fontSize: 20,
@@ -223,14 +223,14 @@ const styles = StyleSheet.create({
         marginTop: 12,
         marginRight: 40,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     form: {
         flex: 1,
         padding: 10,
         justifyContent: 'flex-start',
         paddingBottom: 130,
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     formInput: {
         height: 50,
@@ -240,7 +240,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'lightgray',
         borderRadius: 5,
-        color: 'black',
+        color: 'black'
     },
     formInputArea: {
         height: 100,
@@ -250,7 +250,7 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: 'lightgray',
         borderRadius: 5,
-        color: 'black',
+        color: 'black'
     },
     button: {
         height: 50,
@@ -260,21 +260,21 @@ const styles = StyleSheet.create({
         marginTop: 10,
         justifyContent: 'center',
         alignItems: 'center',
-        borderRadius: 5,
+        borderRadius: 5
     },
     buttonText: {
         color: '#fff',
         fontSize: 20,
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     loader: {
-        marginTop: 20,
+        marginTop: 20
     },
     error: {
         color: 'red',
         paddingTop: 10,
-        textAlign: 'center',
-    },
+        textAlign: 'center'
+    }
 });
 
 export default UserAdd;

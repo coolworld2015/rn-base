@@ -12,7 +12,7 @@ import {
     TextInput,
     Image,
     Dimensions,
-    RefreshControl,
+    RefreshControl
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -22,7 +22,7 @@ class Users extends Component {
         super(props);
 
         let ds = new ListView.DataSource({
-            rowHasChanged: (r1, r2) => r1 !== r2,
+            rowHasChanged: (r1, r2) => r1 !== r2
         });
 
         this.state = {
@@ -33,7 +33,7 @@ class Users extends Component {
             recordsCount: 15,
             positionY: 0,
             searchQuery: '',
-            refreshing: false,
+            refreshing: false
         };
 
         this.getItems();
@@ -45,7 +45,7 @@ class Users extends Component {
 
             this.setState({
                 showProgress: true,
-                resultsCount: 0,
+                resultsCount: 0
             });
 
             this.getItems();
@@ -58,7 +58,7 @@ class Users extends Component {
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-            searchQuery: '',
+            searchQuery: ''
         });
 
         fetch(appConfig.url + 'api/users/get', {
@@ -66,8 +66,8 @@ class Users extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': appConfig.access_token,
-            },
+                'Authorization': appConfig.access_token
+            }
         })
             .then((response) => response.json())
             .then((responseData) => {
@@ -76,17 +76,17 @@ class Users extends Component {
                     resultsCount: responseData.length,
                     responseData: responseData,
                     filteredItems: responseData,
-                    refreshing: false,
+                    refreshing: false
                 });
             })
             .catch((error) => {
                 this.setState({
-                    serverError: true,
+                    serverError: true
                 });
             })
             .finally(() => {
                 this.setState({
-                    showProgress: false,
+                    showProgress: false
                 });
             });
     }
@@ -105,13 +105,13 @@ class Users extends Component {
     showDetails(rowData) {
         this.props.navigator.push({
             index: 1,
-            data: rowData,
+            data: rowData
         });
     }
 
     addItem() {
         this.props.navigator.push({
-            index: 2,
+            index: 2
         });
     }
 
@@ -147,7 +147,7 @@ class Users extends Component {
             this.setState({
                 dataSource: this.state.dataSource.cloneWithRows(items),
                 recordsCount: recordsCount + 10,
-                positionY: positionY + 500,
+                positionY: positionY + 500
             });
         }
     }
@@ -163,14 +163,14 @@ class Users extends Component {
             dataSource: this.state.dataSource.cloneWithRows(items),
             resultsCount: items.length,
             filteredItems: items,
-            searchQuery: text,
+            searchQuery: text
         });
     }
 
     refreshDataAndroid() {
         this.setState({
             showProgress: true,
-            resultsCount: 0,
+            resultsCount: 0
         });
 
         this.getItems();
@@ -187,7 +187,7 @@ class Users extends Component {
             filteredItems: this.state.responseData,
             positionY: 0,
             recordsCount: 15,
-            searchQuery: '',
+            searchQuery: ''
         });
     }
 
@@ -220,7 +220,7 @@ class Users extends Component {
                 style={{
                     height: 20,
                     width: 20,
-                    marginTop: 10,
+                    marginTop: 10
                 }}
             />;
         }
@@ -321,19 +321,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     iconForm: {
         flexDirection: 'row',
         borderColor: 'darkblue',
-        borderWidth: 3,
+        borderWidth: 3
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'darkblue',
         borderWidth: 0,
-        borderColor: 'whitesmoke',
+        borderColor: 'whitesmoke'
     },
     searchLarge: {
         height: 45,
@@ -342,7 +342,7 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderColor: 'white',
         borderRadius: 0,
-        width: Dimensions.get('window').width * .90,
+        width: Dimensions.get('window').width * .90
     },
     searchSmall: {
         height: 45,
@@ -351,14 +351,14 @@ const styles = StyleSheet.create({
         borderColor: 'white',
         marginLeft: -5,
         paddingLeft: 5,
-        width: Dimensions.get('window').width * .10,
+        width: Dimensions.get('window').width * .10
     },
     textSmall: {
         fontSize: 16,
         textAlign: 'center',
         margin: 14,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     textLarge: {
         fontSize: 20,
@@ -367,7 +367,7 @@ const styles = StyleSheet.create({
         marginTop: 12,
         paddingLeft: 10,
         fontWeight: 'bold',
-        color: 'white',
+        color: 'white'
     },
     textInput: {
         height: 45,
@@ -376,7 +376,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         borderWidth: 3,
         borderColor: 'lightgray',
-        borderRadius: 0,
+        borderRadius: 0
     },
     row: {
         flex: 1,
@@ -385,12 +385,12 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         borderColor: '#D7D7D7',
         borderBottomWidth: 1,
-        backgroundColor: '#fff',
+        backgroundColor: '#fff'
     },
     rowText: {
         backgroundColor: '#fff',
         color: 'black',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     countFooter: {
         fontSize: 16,
@@ -399,22 +399,22 @@ const styles = StyleSheet.create({
         borderColor: '#D7D7D7',
         backgroundColor: 'darkblue',
         color: 'white',
-        fontWeight: 'bold',
+        fontWeight: 'bold'
     },
     loader: {
         justifyContent: 'center',
-        height: 100,
+        height: 100
     },
     error: {
         color: 'red',
         paddingTop: 10,
-        textAlign: 'center',
+        textAlign: 'center'
     },
     menu: {
         alignItems: 'center',
         margin: 14,
-        marginTop: 16,
-    },
+        marginTop: 16
+    }
 });
 
 export default Users;
