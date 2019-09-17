@@ -16,7 +16,7 @@ class PhoneDetails extends Component {
         super(props);
 
         BackHandler.addEventListener('hardwareBackPress', () => {
-            if (this.props.navigator) {
+            if (this.props.navigation) {
                 this.props.navigation.goBack();
             }
             return true;
@@ -164,7 +164,7 @@ class PhoneDetails extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
+        )
     }
 }
 

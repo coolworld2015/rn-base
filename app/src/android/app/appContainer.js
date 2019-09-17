@@ -63,33 +63,25 @@ const AuditTab = createStackNavigator({
     }
 );
 
-/*const LogoutTab = createStackNavigator({
-        Quit
-    }, {
-        headerMode: 'none',
-        transitionConfig: () => ({
-            screenInterpolator: sceneProps => {
-                return StackViewStyleInterpolator.forHorizontal(sceneProps);
-            }
-        })
-    }
-);*/
-
 class Logout extends Component {
     constructor(props) {
         super(props);
+    }
 
+    componentDidMount() {
+        this.didFocusListener = this.props.navigation.addListener(
+            'didFocus',
+            () => {
+                this.quitComponent();
+            }
+        );
+    }
+
+    quitComponent() {
         appConfig.onLogOut();
     }
 
     render() {
-        return null;
-    }
-}
-
-class Quit extends React.Component {
-    render() {
-        window.appConfig.onLogOut();
         return null;
     }
 }
@@ -109,8 +101,8 @@ const tabBarOptions = {
 const TabNavigator = createMaterialTopTabNavigator({
         Phones: PhonesTab,
         Users: UsersTab,
-        Audit: AuditTab
-        //Quit: Logout
+        Audit: AuditTab,
+        Quit: Logout
     },
     {
         tabBarPosition: 'top',

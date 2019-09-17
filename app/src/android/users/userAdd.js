@@ -18,16 +18,15 @@ class UserAdd extends Component {
         super(props);
 
         BackHandler.addEventListener('hardwareBackPress', () => {
-            if (this.props.navigator) {
-                this.props.navigator.pop();
+            if (this.props.navigation) {
+                this.props.navigation.goBack();
             }
             return true;
         });
 
         this.state = {
             showProgress: false,
-            bugANDROID: ''
-        };
+        }
     }
 
     addItem() {
@@ -42,7 +41,6 @@ class UserAdd extends Component {
 
         this.setState({
             showProgress: true,
-            bugANDROID: ' '
         });
 
         fetch(appConfig.url + 'api/users/add', {
@@ -67,13 +65,13 @@ class UserAdd extends Component {
             .catch((error) => {
                 this.setState({
                     serverError: true
-                });
+                })
             })
             .finally(() => {
                 this.setState({
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     goBack() {
@@ -86,13 +84,13 @@ class UserAdd extends Component {
         if (this.state.serverError) {
             errorCtrl = <Text style={styles.error}>
                 Something went wrong.
-            </Text>;
+            </Text>
         }
 
         if (this.state.invalidValue) {
             validCtrl = <Text style={styles.error}>
                 Value required - please provide.
-            </Text>;
+            </Text>
         }
 
         if (this.state.showProgress) {
@@ -102,7 +100,7 @@ class UserAdd extends Component {
                     color="darkblue"
                     animating={true}
                 />
-            </View>;
+            </View>
         }
 
         return (
@@ -192,7 +190,7 @@ class UserAdd extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
+        )
     }
 }
 

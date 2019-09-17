@@ -45,7 +45,7 @@ class Audit extends Component {
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-            searchQuery: ''
+            searchQuery: '',
         });
 
         fetch(appConfig.url + 'api/audit/get', {
@@ -53,7 +53,7 @@ class Audit extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': appConfig.access_token
+                'Authorization': appConfig.access_token,
             }
         })
             .then((response) => response.json())
@@ -64,18 +64,18 @@ class Audit extends Component {
                     resultsCount: responseData.length,
                     responseData: responseData,
                     filteredItems: responseData
-                });
+                })
             })
             .catch((error) => {
                 this.setState({
                     serverError: true
-                });
+                })
             })
             .finally(() => {
                 this.setState({
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     showDetails(rowData) {
@@ -94,7 +94,7 @@ class Audit extends Component {
                     </Text>
                 </View>
             </TouchableHighlight>
-        );
+        )
     }
 
     refreshData(event) {
@@ -115,8 +115,8 @@ class Audit extends Component {
             this.setState({
                 dataSource: this.state.dataSource.cloneWithRows(items),
                 recordsCount: recordsCount + 10,
-                positionY: positionY + 500
-            });
+                positionY: positionY + 500,
+            })
         }
     }
 
@@ -132,7 +132,7 @@ class Audit extends Component {
             resultsCount: items.length,
             filteredItems: items,
             searchQuery: text
-        });
+        })
     }
 
     refreshDataAndroid() {
@@ -165,7 +165,7 @@ class Audit extends Component {
         if (this.state.serverError) {
             errorCtrl = <Text style={styles.error}>
                 Something went wrong.
-            </Text>;
+            </Text>
         }
 
         if (this.state.showProgress) {
@@ -175,7 +175,7 @@ class Audit extends Component {
                     color="darkblue"
                     animating={true}
                 />
-            </View>;
+            </View>
         }
 
         if (this.state.searchQuery.length > 0) {
@@ -184,9 +184,9 @@ class Audit extends Component {
                 style={{
                     height: 20,
                     width: 20,
-                    marginTop: 10
+                    marginTop: 10,
                 }}
-            />;
+            />
         }
 
         return (
@@ -269,7 +269,7 @@ class Audit extends Component {
                     </Text>
                 </View>
             </View>
-        );
+        )
     }
 }
 

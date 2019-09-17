@@ -34,26 +34,24 @@ class App extends Component {
         };
     }
 
-    render() {
-        if (this.state.isLoggedIn) {
-            return (
-                <AppContainer onLogOut={this.onLogOut.bind(this)}/>
-            );
-        } else {
-            return (
-                <Login onLogin={this.onLogin.bind(this)}/>
-            );
-        }
-    }
-
     onLogin() {
-        console.log('onLogin');
         this.setState({isLoggedIn: true});
     }
 
     onLogOut() {
-        console.log('onLogOut');
         this.setState({isLoggedIn: false});
+    }
+
+    render() {
+        if (this.state.isLoggedIn) {
+            return (
+                <AppContainer/>
+            )
+        } else {
+            return (
+                <Login onLogin={this.onLogin.bind(this)}/>
+            )
+        }
     }
 }
 

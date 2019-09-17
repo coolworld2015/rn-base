@@ -16,8 +16,8 @@ class AuditDetails extends Component {
         super(props);
 
         BackHandler.addEventListener('hardwareBackPress', () => {
-            if (this.props.navigator) {
-                this.props.navigator.pop();
+            if (this.props.navigation) {
+                this.props.navigation.goBack();
             }
             return true;
         });
@@ -29,7 +29,7 @@ class AuditDetails extends Component {
             ip: appConfig.item.ip.split(':')[3],
             description: appConfig.item.description,
             showProgress: false
-        };
+        }
     }
 
     goBack() {
@@ -128,7 +128,7 @@ class AuditDetails extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
+        )
     }
 }
 

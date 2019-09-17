@@ -1,9 +1,6 @@
 'use strict';
 
 import React, {Component} from 'react';
-import {
-    BackHandler
-} from 'react-native';
 
 console.disableYellowBox = true;
 
@@ -13,13 +10,6 @@ import AppContainer from './appContainer';
 class App extends Component {
     constructor(props) {
         super(props);
-
-        BackHandler.addEventListener('hardwareBackPress', () => {
-            if (this.props.navigator) {
-                this.props.navigator.pop();
-            }
-            return true;
-        });
 
         this.state = {
             isLoggedIn: false,
@@ -44,22 +34,6 @@ class App extends Component {
                 items: [],
                 item: {}
             }
-        };
-    }
-
-    onLogOut() {
-        appConfig.onLogOut();
-    }
-
-    render() {
-        if (this.state.isLoggedIn) {
-            return (
-                <AppContainer/>
-            );
-        } else {
-            return (
-                <Login onLogin={this.onLogin.bind(this)}/>
-            );
         }
     }
 
@@ -70,6 +44,19 @@ class App extends Component {
     onLogOut() {
         this.setState({isLoggedIn: false});
     }
+
+    render() {
+        if (this.state.isLoggedIn) {
+            return (
+                <AppContainer/>
+            )
+        } else {
+            return (
+                <Login onLogin={this.onLogin.bind(this)}/>
+            )
+        }
+    }
+
 }
 
 export default App;

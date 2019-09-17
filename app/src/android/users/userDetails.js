@@ -19,8 +19,8 @@ class UserDetails extends Component {
         super(props);
 
         BackHandler.addEventListener('hardwareBackPress', () => {
-            if (this.props.navigator) {
-                this.props.navigator.pop();
+            if (this.props.navigation) {
+                this.props.navigation.goBack();
             }
             return true;
         });

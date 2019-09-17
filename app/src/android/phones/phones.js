@@ -53,30 +53,29 @@ class Phones extends Component {
             headers: {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json',
-                'Authorization': appConfig.access_token
+                'Authorization': appConfig.access_token,
             }
         })
             .then((response) => response.json())
             .then((responseData) => {
-
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(responseData.sort(this.sort).slice(0, 15)),
                     resultsCount: responseData.length,
                     responseData: responseData,
                     filteredItems: responseData,
                     refreshing: false
-                });
+                })
             })
             .catch((error) => {
                 this.setState({
                     serverError: true
-                });
+                })
             })
             .finally(() => {
                 this.setState({
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     sort(a, b) {
@@ -110,7 +109,7 @@ class Phones extends Component {
                     </Text>
                 </View>
             </TouchableHighlight>
-        );
+        )
     }
 
     refreshData(event) {
@@ -131,8 +130,8 @@ class Phones extends Component {
             this.setState({
                 dataSource: this.state.dataSource.cloneWithRows(items),
                 recordsCount: recordsCount + 10,
-                positionY: positionY + 400
-            });
+                positionY: positionY + 400,
+            })
         }
     }
 
@@ -181,7 +180,7 @@ class Phones extends Component {
         if (this.state.serverError) {
             errorCtrl = <Text style={styles.error}>
                 Something went wrong.
-            </Text>;
+            </Text>
         }
 
         if (this.state.showProgress) {
@@ -191,7 +190,7 @@ class Phones extends Component {
                     color="darkblue"
                     animating={true}
                 />
-            </View>;
+            </View>
         }
 
         if (this.state.searchQuery.length > 0) {
@@ -202,7 +201,7 @@ class Phones extends Component {
                     width: 20,
                     marginTop: 10,
                 }}
-            />;
+            />
         }
 
         return (
@@ -287,7 +286,7 @@ class Phones extends Component {
                     </Text>
                 </View>
             </View>
-        );
+        )
     }
 }
 

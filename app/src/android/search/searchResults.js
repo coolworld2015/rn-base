@@ -12,7 +12,8 @@ import {
     TextInput,
     BackHandler,
     Image,
-    RefreshControl, Dimensions
+    RefreshControl,
+    Dimensions
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -22,8 +23,8 @@ class SearchResults extends Component {
         super(props);
 
         BackHandler.addEventListener('hardwareBackPress', () => {
-            if (this.props.navigator) {
-                this.props.navigator.pop();
+            if (this.props.navigation) {
+                this.props.navigation.goBack();
             }
             return true;
         });
@@ -33,7 +34,7 @@ class SearchResults extends Component {
         });
 
         this.state = {
-            dataSource: ds.cloneWithRows([])
+            dataSource: ds.cloneWithRows([]),
         };
 
         this.state = {
@@ -45,7 +46,7 @@ class SearchResults extends Component {
             recordsCount: 15,
             positionY: 0,
             searchQuery: '',
-            refreshing: false
+            refreshing: false,
         };
 
         this.getItems();
@@ -110,10 +111,8 @@ class SearchResults extends Component {
     }
 
     showDetails(rowData) {
-        this.props.navigator.push({
-            index: 1,
-            data: rowData
-        });
+        appConfig.item = rowData;
+        this.props.navigation.navigate('PhoneDetails');
     }
 
     renderRow(rowData) {
@@ -127,7 +126,7 @@ class SearchResults extends Component {
                     </Text>
                 </View>
             </TouchableHighlight>
-        );
+        )
     }
 
     refreshData(event) {
@@ -162,7 +161,7 @@ class SearchResults extends Component {
             this.setState({
                 dataSource: this.state.dataSource.cloneWithRows(items),
                 recordsCount: recordsCount + 10,
-                positionY: positionY + 500,
+                positionY: positionY + 500
             });
         }
     }
@@ -179,7 +178,7 @@ class SearchResults extends Component {
             resultsCount: items.length,
             filteredItems: items,
             searchQuery: text,
-        });
+        })
     }
 
     refreshDataAndroid() {

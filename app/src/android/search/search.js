@@ -10,27 +10,33 @@ import {
     ScrollView,
     TextInput,
     Switch,
-    Dimensions,
+    Dimensions, BackHandler
 } from 'react-native';
 
 class Search extends Component {
     constructor(props) {
         super(props);
 
+        BackHandler.addEventListener('hardwareBackPress', () => {
+            if (this.props.navigation) {
+                this.props.navigation.goBack();
+            }
+            return true;
+        });
+
         this.state = {
             showProgress: false,
             eventSwitchTitle: false,
             eventSwitchBase: true,
             textSwitchBase: 'Search by name',
-            bugANDROID: '',
-        };
+        }
     }
 
     clearSearch() {
         this.setState({
             searchQuery: '',
             invalidValue: false
-        });
+        })
     }
 
     onSearchPressed() {
@@ -53,11 +59,11 @@ class Search extends Component {
         if (this.state.eventSwitchBase) {
             this.setState({
                 textSwitchBase: 'Search by phone'
-            });
+            })
         } else {
             this.setState({
                 textSwitchBase: 'Search by name'
-            });
+            })
         }
     }
 
@@ -158,7 +164,7 @@ class Search extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
+        )
     }
 }
 

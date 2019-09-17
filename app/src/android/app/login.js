@@ -10,7 +10,7 @@ import {
     ScrollView,
     ActivityIndicator,
     TextInput,
-    Dimensions
+    Dimensions,
 } from 'react-native';
 
 class Login extends Component {
@@ -21,7 +21,6 @@ class Login extends Component {
             showProgress: false,
             username: '1',
             password: '1',
-            bugANDROID: ''
         };
     }
 
@@ -35,7 +34,7 @@ class Login extends Component {
         }
 
         this.setState({
-            showProgress: true
+            showProgress: true,
         });
 
 
@@ -62,16 +61,16 @@ class Login extends Component {
                 } else {
                     this.setState({
                         badCredentials: true,
-                        showProgress: false
-                    });
+                        showProgress: false,
+                    })
                 }
             })
-            .catch((error) => {
+            .catch(() => {
                 this.setState({
                     badCredentials: true,
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     render() {
@@ -80,7 +79,7 @@ class Login extends Component {
         if (this.state.badCredentials) {
             errorCtrl = <Text style={styles.error}>
                 That username and password combination did not work
-            </Text>;
+            </Text>
         }
 
         if (this.state.showProgress) {
@@ -89,7 +88,7 @@ class Login extends Component {
                 size="large"
                 color="darkblue"
                 style={styles.loader}
-            />;
+            />
         }
 
         return (
@@ -111,7 +110,7 @@ class Login extends Component {
                         underlineColorAndroid='rgba(0,0,0,0)'
                         onChangeText={(text) => this.setState({
                             username: text,
-                            badCredentials: false
+                            badCredentials: false,
                         })}
                         style={styles.loginInput}
                         value={this.state.username}
@@ -148,7 +147,7 @@ class Login extends Component {
                     <Text>{this.state.bugANDROID}</Text>
                 </View>
             </ScrollView>
-        );
+        )
     }
 }
 
@@ -157,7 +156,7 @@ const styles = StyleSheet.create({
         paddingTop: 40,
         padding: 10,
         alignItems: 'center',
-        flex: 1
+        flex: 1,
     },
     logo: {
         width: 150,
