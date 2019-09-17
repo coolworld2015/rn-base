@@ -34,16 +34,31 @@ class Users extends Component {
             recordsCount: 25,
             positionY: 0,
             searchQuery: ''
-        }
-    }
+        };
 
-    componentDidMount() {
         this.getItems();
     }
 
-    componentWillReceiveProps(nextProps) {
-        if (nextProps.navigation.state.params.refresh) {
-            this.getItems();
+    componentDidMount() {
+        this.didFocusListener = this.props.navigation.addListener(
+            'didFocus',
+            () => {
+                this.refreshComponent()
+            }
+        )
+    }
+
+    refreshComponent() {
+        if (appConfig.users.refresh) {
+            appConfig.users.refresh = false;
+
+            this.setState({
+                showProgress: true
+            });
+
+            setTimeout(() => {
+                this.getItems()
+            }, 500);
         }
     }
 
@@ -334,7 +349,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white',
+        backgroundColor: 'white'
     },
     iconForm: {
         flexDirection: 'row',

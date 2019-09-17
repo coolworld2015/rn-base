@@ -56,7 +56,8 @@ class UserDetails extends Component {
             .then((response) => response.json())
             .then((responseData) => {
                 if (responseData.pass) {
-                    this.props.navigation.navigate('Users', {refresh: true})
+                    appConfig.users.refresh = true;
+                    this.props.navigation.goBack();
                 } else {
                     this.setState({
                         badCredentials: true
@@ -110,7 +111,8 @@ class UserDetails extends Component {
             .then((response) => response.json())
             .then((responseData) => {
                 if (responseData.text) {
-                    this.props.navigation.navigate('Users', {refresh: true})
+                    appConfig.users.refresh = true;
+                    this.props.navigation.goBack();
                 } else {
                     this.setState({
                         badCredentials: true

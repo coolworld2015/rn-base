@@ -51,7 +51,8 @@ class UserAdd extends Component {
         })
             .then((response) => response.json())
             .then((responseData) => {
-                this.props.navigation.navigate('Users', {refresh: true});
+                appConfig.users.refresh = true;
+                this.props.navigation.goBack();
             })
             .catch((error) => {
                 this.setState({
