@@ -23,25 +23,17 @@ class AuditDetails extends Component {
         });
 
         this.state = {
-            name: ''
+            id: appConfig.item.id,
+            name: appConfig.item.name,
+            date: appConfig.item.date,
+            ip: appConfig.item.ip.split(':')[3],
+            description: appConfig.item.description,
+            showProgress: false
         };
-
-        if (props.data) {
-            let ip = props.data.ip.split(':');
-
-            this.state = {
-                id: props.data.id,
-                name: props.data.name,
-                date: props.data.date,
-                ip: ip[3],
-                description: props.data.description,
-                showProgress: false
-            };
-        }
     }
 
     goBack() {
-        this.props.navigator.pop();
+        this.props.navigation.goBack();
     }
 
     render() {

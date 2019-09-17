@@ -79,10 +79,8 @@ class Audit extends Component {
     }
 
     showDetails(rowData) {
-        this.props.navigator.push({
-            index: 1,
-            data: rowData
-        });
+        appConfig.item = rowData;
+        this.props.navigation.navigate('AuditDetails');
     }
 
     renderRow(rowData) {
@@ -146,10 +144,6 @@ class Audit extends Component {
         this.getItems();
     }
 
-    goBack() {
-        this.props.navigator.pop();
-    }
-
     clearSearchQuery() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(this.state.responseData.slice(0, 15)),
@@ -162,7 +156,7 @@ class Audit extends Component {
     }
 
     onMenu() {
-        appConfig.drawer.openDrawer();
+        //appConfig.drawer.openDrawer();
     }
 
     render() {

@@ -26,18 +26,12 @@ class UserDetails extends Component {
         });
 
         this.state = {
-            serverError: false
+            id: appConfig.item.id,
+            name: appConfig.item.name,
+            pass: appConfig.item.pass,
+            description: appConfig.item.description,
+            showProgress: false
         };
-
-        if (props.data) {
-            this.state = {
-                id: props.data.id,
-                name: props.data.name,
-                pass: props.data.pass,
-                description: props.data.description,
-                showProgress: false
-            };
-        }
     }
 
     updateItem() {
@@ -45,14 +39,13 @@ class UserDetails extends Component {
             this.state.pass === undefined || this.state.pass === '' ||
             this.state.description === undefined || this.state.description === '') {
             this.setState({
-                invalidValue: true
+                invalidValue: true,
             });
             return;
         }
 
         this.setState({
-            showProgress: true,
-            bugANDROID: ' '
+            showProgress: true
         });
 
         fetch(appConfig.url + 'api/users/update', {
@@ -73,7 +66,7 @@ class UserDetails extends Component {
             .then((responseData) => {
                 if (responseData.pass) {
                     appConfig.users.refresh = true;
-                    this.props.navigator.pop();
+                    this.props.navigation.goBack();
                 } else {
                     this.setState({
                         badCredentials: true
@@ -128,7 +121,7 @@ class UserDetails extends Component {
             .then((responseData) => {
                 if (responseData.text) {
                     appConfig.users.refresh = true;
-                    this.props.navigator.pop();
+                    this.props.navigation.goBack();
                 } else {
                     this.setState({
                         badCredentials: true
@@ -148,7 +141,7 @@ class UserDetails extends Component {
     }
 
     goBack() {
-        this.props.navigator.pop();
+        this.props.navigation.goBack();
     }
 
     render() {

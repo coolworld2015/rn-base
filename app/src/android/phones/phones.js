@@ -45,7 +45,7 @@ class Phones extends Component {
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-            searchQuery: ''
+            searchQuery: '',
         });
 
         fetch(appConfig.url + 'api/items/get', {
@@ -160,10 +160,6 @@ class Phones extends Component {
         this.getItems();
     }
 
-    goBack() {
-        this.props.navigator.pop();
-    }
-
     clearSearchQuery() {
         this.setState({
             dataSource: this.state.dataSource.cloneWithRows(this.state.responseData.slice(0, 15)),
@@ -176,7 +172,7 @@ class Phones extends Component {
     }
 
     onMenu() {
-        appConfig.drawer.openDrawer();
+        //appConfig.drawer.openDrawer();
     }
 
     render() {
@@ -204,7 +200,7 @@ class Phones extends Component {
                 style={{
                     height: 20,
                     width: 20,
-                    marginTop: 10
+                    marginTop: 10,
                 }}
             />;
         }

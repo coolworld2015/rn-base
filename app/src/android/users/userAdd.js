@@ -62,7 +62,7 @@ class UserAdd extends Component {
             .then((response) => response.json())
             .then((responseData) => {
                 appConfig.users.refresh = true;
-                this.props.navigator.pop();
+                this.props.navigation.goBack();
             })
             .catch((error) => {
                 this.setState({
@@ -77,7 +77,7 @@ class UserAdd extends Component {
     }
 
     goBack() {
-        this.props.navigator.pop();
+        this.props.navigation.goBack();
     }
 
     render() {
