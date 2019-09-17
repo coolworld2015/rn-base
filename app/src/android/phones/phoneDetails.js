@@ -17,30 +17,24 @@ class PhoneDetails extends Component {
 
         BackHandler.addEventListener('hardwareBackPress', () => {
             if (this.props.navigator) {
-                this.props.navigator.pop();
+                this.props.navigation.goBack();
             }
             return true;
         });
 
         this.state = {
-            name: ''
+            id: appConfig.item.id,
+            name: appConfig.item.name,
+            phone: appConfig.item.phone,
+            street: appConfig.item.street,
+            house: appConfig.item.house,
+            apt: appConfig.item.apt,
+            index: appConfig.item.index
         };
-
-        if (props.data) {
-            this.state = {
-                id: props.data.id,
-                name: props.data.name,
-                phone: props.data.phone,
-                street: props.data.street,
-                house: props.data.house,
-                apt: props.data.apt,
-                index: props.data.index
-            };
-        }
     }
 
     goBack() {
-        this.props.navigator.pop();
+        this.props.navigation.goBack();
     }
 
     render() {
@@ -178,14 +172,14 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'darkblue',
-        borderWidth: 0,
-        borderColor: 'whitesmoke'
+        borderTopWidth: 1,
+        borderColor: 'white'
     },
     textSmall: {
         fontSize: 16,

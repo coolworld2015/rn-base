@@ -2,7 +2,6 @@
 
 import React, {Component} from 'react';
 import {
-    DrawerLayoutAndroid,
     BackHandler
 } from 'react-native';
 
@@ -23,7 +22,7 @@ class App extends Component {
         });
 
         this.state = {
-            isLoggedIn: false
+            isLoggedIn: false,
         };
 
         window.appConfig = {
@@ -46,14 +45,6 @@ class App extends Component {
                 item: {}
             }
         };
-    }
-
-    onBack() {
-        appConfig.drawer.closeDrawer();
-    }
-
-    componentDidMount() {
-        appConfig.drawer = this.refs['DRAWER_REF'];
     }
 
     onLogOut() {

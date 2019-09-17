@@ -10,7 +10,7 @@ import {
     ScrollView,
     TextInput,
     Switch,
-    Dimensions
+    Dimensions,
 } from 'react-native';
 
 class Search extends Component {
@@ -22,7 +22,7 @@ class Search extends Component {
             eventSwitchTitle: false,
             eventSwitchBase: true,
             textSwitchBase: 'Search by name',
-            bugANDROID: ''
+            bugANDROID: '',
         };
     }
 
@@ -42,13 +42,11 @@ class Search extends Component {
             return;
         }
 
-        this.props.navigator.push({
-            index: 3,
-            data: {
-                searchQuery: this.state.searchQuery,
-                searchType: this.state.textSwitchBase
-            }
-        });
+        appConfig.item = {
+            searchQuery: this.state.searchQuery,
+            searchType: this.state.textSwitchBase
+        };
+        this.props.navigation.navigate('SearchResults');
     }
 
     toggleTypeChange() {
@@ -64,7 +62,7 @@ class Search extends Component {
     }
 
     goBack() {
-        this.props.navigator.pop();
+        this.props.navigation.goBack();
     }
 
     render() {
@@ -73,7 +71,7 @@ class Search extends Component {
         if (this.state.invalidValue) {
             validCtrl = <Text style={styles.error}>
                 Value required - please provide.
-            </Text>;
+            </Text>
         }
 
         return (
@@ -139,7 +137,7 @@ class Search extends Component {
                                 underlineColorAndroid='rgba(0,0,0,0)'
                                 onChangeText={(text) => this.setState({
                                     searchQuery: text,
-                                    invalidValue: false
+                                    invalidValue: false,
                                 })}
                                 value={this.state.searchQuery}
                                 style={styles.search}
@@ -168,7 +166,7 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     header: {
         flexDirection: 'row',

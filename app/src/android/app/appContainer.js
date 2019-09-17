@@ -109,12 +109,13 @@ const tabBarOptions = {
 const TabNavigator = createMaterialTopTabNavigator({
         Phones: PhonesTab,
         Users: UsersTab,
-        Audit: AuditTab,
+        Audit: AuditTab
         //Quit: Logout
     },
     {
         tabBarPosition: 'top',
         tabBarOptions
-    });
+    }
+);
 
 export default createAppContainer(TabNavigator);

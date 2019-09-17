@@ -283,19 +283,19 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     iconForm: {
         flexDirection: 'row',
         borderColor: 'darkblue',
-        borderWidth: 3
+        borderWidth: 4
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'darkblue',
-        borderWidth: 0,
-        borderColor: 'whitesmoke'
+        borderTopWidth: 1,
+        borderColor: 'white'
     },
     searchLarge: {
         height: 45,

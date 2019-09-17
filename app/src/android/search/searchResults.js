@@ -12,8 +12,7 @@ import {
     TextInput,
     BackHandler,
     Image,
-    Dimensions,
-    RefreshControl
+    RefreshControl, Dimensions
 } from 'react-native';
 
 import ListView from 'deprecated-react-native-listview';
@@ -37,22 +36,21 @@ class SearchResults extends Component {
             dataSource: ds.cloneWithRows([])
         };
 
-        if (props.data) {
-            this.state = {
-                dataSource: ds.cloneWithRows([]),
-                searchQueryHttp: props.data.searchQuery,
-                searchType: props.data.searchType,
-                showProgress: true,
-                resultsCount: 0,
-                recordsCount: 15,
-                positionY: 0,
-                searchQuery: '',
-                refreshing: false
-            };
+        this.state = {
+            dataSource: ds.cloneWithRows([]),
+            searchQueryHttp: appConfig.item.searchQuery,
+            searchType: appConfig.item.searchType,
+            showProgress: true,
+            resultsCount: 0,
+            recordsCount: 15,
+            positionY: 0,
+            searchQuery: '',
+            refreshing: false
+        };
 
-            this.getItems();
-        }
+        this.getItems();
     }
+
 
     getItems() {
         this.setState({
@@ -60,7 +58,7 @@ class SearchResults extends Component {
             resultsCount: 0,
             recordsCount: 15,
             positionY: 0,
-            searchQuery: ''
+            searchQuery: '',
         });
 
         let webUrl;
@@ -85,7 +83,7 @@ class SearchResults extends Component {
                     resultsCount: responseData.length,
                     responseData: responseData.sort(this.sort),
                     filteredItems: responseData.sort(this.sort),
-                    refreshing: false
+                    refreshing: false,
                 });
             })
             .catch((error) => {
@@ -143,7 +141,7 @@ class SearchResults extends Component {
                 resultsCount: 0,
                 recordsCount: 15,
                 positionY: 0,
-                searchQuery: ''
+                searchQuery: '',
             });
 
             setTimeout(() => {
@@ -164,7 +162,7 @@ class SearchResults extends Component {
             this.setState({
                 dataSource: this.state.dataSource.cloneWithRows(items),
                 recordsCount: recordsCount + 10,
-                positionY: positionY + 500
+                positionY: positionY + 500,
             });
         }
     }
@@ -180,7 +178,7 @@ class SearchResults extends Component {
             dataSource: this.state.dataSource.cloneWithRows(items),
             resultsCount: items.length,
             filteredItems: items,
-            searchQuery: text
+            searchQuery: text,
         });
     }
 
@@ -193,8 +191,8 @@ class SearchResults extends Component {
         this.getItems();
     }
 
-    goBack(rowData) {
-        this.props.navigator.pop();
+    goBack() {
+        this.props.navigation.goBack();
     }
 
     clearSearchQuery() {
@@ -214,7 +212,7 @@ class SearchResults extends Component {
         if (this.state.serverError) {
             errorCtrl = <Text style={styles.error}>
                 Something went wrong.
-            </Text>;
+            </Text>
         }
 
         if (this.state.showProgress) {
@@ -224,7 +222,7 @@ class SearchResults extends Component {
                     color="darkblue"
                     animating={true}
                 />
-            </View>;
+            </View>
         }
 
         if (this.state.searchQuery.length > 0) {
@@ -233,9 +231,9 @@ class SearchResults extends Component {
                 style={{
                     height: 20,
                     width: 20,
-                    marginTop: 10
+                    marginTop: 10,
                 }}
-            />;
+            />
         }
 
         return (
@@ -318,7 +316,7 @@ class SearchResults extends Component {
                     </Text>
                 </View>
             </View>
-        );
+        )
     }
 }
 
@@ -326,19 +324,28 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        backgroundColor: 'white'
+        backgroundColor: 'white',
     },
     iconForm: {
         flexDirection: 'row',
         borderColor: 'darkblue',
-        borderWidth: 3
+        borderWidth: 4
     },
     header: {
         flexDirection: 'row',
         justifyContent: 'space-between',
         backgroundColor: 'darkblue',
-        borderWidth: 0,
-        borderColor: 'whitesmoke'
+        borderTopWidth: 1,
+        borderColor: 'white'
+    },
+    searchLarge: {
+        height: 45,
+        padding: 5,
+        backgroundColor: 'white',
+        borderWidth: 3,
+        borderColor: 'white',
+        borderRadius: 0,
+        width: Dimensions.get('window').width * .90
     },
     textSmall: {
         fontSize: 16,
