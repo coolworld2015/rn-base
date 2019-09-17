@@ -15,23 +15,49 @@ import Audit from '../audit/audit';
 import AuditDetails from '../audit/auditDetails';
 import {Image} from 'react-native';
 
+import {StackViewStyleInterpolator} from "react-navigation-stack";
+
 const PhonesTab = createStackNavigator({
-    Phones,
-    PhoneDetails,
-    Search,
-    SearchResults
-});
+        Phones,
+        PhoneDetails,
+        Search,
+        SearchResults,
+    }, {
+        headerMode: 'none',
+        transitionConfig: () => ({
+            screenInterpolator: sceneProps => {
+                return StackViewStyleInterpolator.forHorizontal(sceneProps);
+            }
+        })
+    }
+);
 
 const UsersTab = createStackNavigator({
-    Users,
-    UserDetails,
-    UserAdd
-});
+        Users,
+        UserDetails,
+        UserAdd
+    }, {
+        headerMode: 'none',
+        transitionConfig: () => ({
+            screenInterpolator: sceneProps => {
+                return StackViewStyleInterpolator.forHorizontal(sceneProps);
+            }
+        })
+    }
+);
 
 const AuditTab = createStackNavigator({
-    Audit,
-    AuditDetails
-});
+        Audit,
+        AuditDetails
+    }, {
+        headerMode: 'none',
+        transitionConfig: () => ({
+            screenInterpolator: sceneProps => {
+                return StackViewStyleInterpolator.forHorizontal(sceneProps);
+            }
+        })
+    }
+);
 
 class Quit extends React.Component {
     render() {
