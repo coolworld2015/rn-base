@@ -328,7 +328,7 @@ const styles = StyleSheet.create({
     },
     error: {
         color: 'red',
-        paddingTop: 15,
+        paddingTop: 20,
         textAlign: 'center'
     }
 });

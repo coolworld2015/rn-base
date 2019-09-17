@@ -204,7 +204,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         margin: 10,
         marginTop: 12,
-        marginRight: 20,
+        marginRight: 40,
         fontWeight: 'bold',
         color: 'white'
     },
@@ -263,7 +263,7 @@ const styles = StyleSheet.create({
     },
     error: {
         color: 'red',
-        paddingTop: 15,
+        paddingTop: 20,
         textAlign: 'center'
     }
 });

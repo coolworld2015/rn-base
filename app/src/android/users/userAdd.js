@@ -257,7 +257,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'darkblue',
         borderColor: '#48BBEC',
         alignSelf: 'stretch',
-        marginTop: 10,
+        marginTop: 20,
         justifyContent: 'center',
         alignItems: 'center',
         borderRadius: 5
@@ -272,7 +272,7 @@ const styles = StyleSheet.create({
     },
     error: {
         color: 'red',
-        paddingTop: 10,
+        paddingTop: 20,
         textAlign: 'center'
     }
 });
