@@ -15,7 +15,7 @@ import Audit from '../audit/audit';
 import AuditDetails from '../audit/auditDetails';
 import {Image} from 'react-native';
 
-import {StackViewStyleInterpolator} from "react-navigation-stack";
+import {StackViewStyleInterpolator} from 'react-navigation-stack';
 
 const PhonesTab = createStackNavigator({
         Phones,
@@ -86,7 +86,7 @@ const TabNavigator = createBottomTabNavigator({
                             width: 15,
                             margin: 0
                         }}
-                    />;
+                    />
                 }
                 if (routeName === 'Users') {
                     iconName = <Image
@@ -96,7 +96,7 @@ const TabNavigator = createBottomTabNavigator({
                             width: 20,
                             margin: 0
                         }}
-                    />;
+                    />
                 }
                 if (routeName === 'Audit') {
                     iconName = <Image
@@ -106,7 +106,7 @@ const TabNavigator = createBottomTabNavigator({
                             width: 20,
                             margin: 0
                         }}
-                    />;
+                    />
                 }
                 if (routeName === 'Quit') {
                     iconName = <Image
@@ -116,12 +116,13 @@ const TabNavigator = createBottomTabNavigator({
                             width: 20,
                             margin: 0
                         }}
-                    />;
+                    />
                 }
 
                 return iconName;
             }
         })
-    });
+    }
+);
 
 export default createAppContainer(TabNavigator);

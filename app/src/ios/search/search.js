@@ -22,15 +22,14 @@ class Search extends Component {
             eventSwitchTitle: false,
             eventSwitchBase: true,
             textSwitchBase: 'Search by name',
-            bugANDROID: ''
-        };
+        }
     }
 
     clearSearch() {
         this.setState({
             searchQuery: '',
             invalidValue: false
-        });
+        })
     }
 
     onSearchPressed() {
@@ -47,18 +46,18 @@ class Search extends Component {
                 searchQuery: this.state.searchQuery,
                 searchType: this.state.textSwitchBase
             }
-        });
+        })
     }
 
     toggleTypeChange() {
         if (this.state.eventSwitchBase) {
             this.setState({
                 textSwitchBase: 'Search by phone'
-            });
+            })
         } else {
             this.setState({
                 textSwitchBase: 'Search by name'
-            });
+            })
         }
     }
 
@@ -72,7 +71,7 @@ class Search extends Component {
         if (this.state.invalidValue) {
             validCtrl = <Text style={styles.error}>
                 Value required - please provide.
-            </Text>;
+            </Text>
         }
 
         return (
@@ -159,7 +158,7 @@ class Search extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
+        )
     }
 }
 

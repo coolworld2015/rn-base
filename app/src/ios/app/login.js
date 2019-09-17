@@ -57,20 +57,20 @@ class Login extends Component {
                     this.setState({
                         badCredentials: false
                     });
-                    this.props.onLogin();
+                    this.props.onLogin()
                 } else {
                     this.setState({
                         badCredentials: true,
                         showProgress: false
-                    });
+                    })
                 }
             })
             .catch((error) => {
                 this.setState({
                     badCredentials: true,
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     render() {
@@ -79,7 +79,7 @@ class Login extends Component {
         if (this.state.badCredentials) {
             errorCtrl = <Text style={styles.error}>
                 That username and password combination did not work
-            </Text>;
+            </Text>
         }
 
         return (
@@ -94,8 +94,7 @@ class Login extends Component {
 
                         <Image
                             style={styles.logo}
-                            source={require('../../../img/logo.jpg')}
-                        />
+                            source={require('../../../img/logo.jpg')}/>
 
                         <TextInput
                             onChangeText={(text) => this.setState({
@@ -140,7 +139,7 @@ class Login extends Component {
                     </View>
                 </KeyboardAvoidingView>
             </ScrollView>
-        );
+        )
     }
 }
 

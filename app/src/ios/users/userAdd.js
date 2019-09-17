@@ -18,7 +18,7 @@ class UserAdd extends Component {
 
         this.state = {
             showProgress: false
-        };
+        }
     }
 
     addItem() {
@@ -56,13 +56,13 @@ class UserAdd extends Component {
             .catch((error) => {
                 this.setState({
                     serverError: true
-                });
+                })
             })
             .finally(() => {
                 this.setState({
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     goBack() {
@@ -75,13 +75,13 @@ class UserAdd extends Component {
         if (this.state.serverError) {
             errorCtrl = <Text style={styles.error}>
                 Something went wrong.
-            </Text>;
+            </Text>
         }
 
         if (this.state.invalidValue) {
             validCtrl = <Text style={styles.error}>
                 Value required - please provide.
-            </Text>;
+            </Text>
         }
 
         return (
@@ -174,7 +174,7 @@ class UserAdd extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
+        )
     }
 }
 

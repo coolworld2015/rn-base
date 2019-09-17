@@ -7,35 +7,21 @@ import {
     View,
     TouchableHighlight,
     TouchableWithoutFeedback,
-    ScrollView,
-    BackHandler
+    ScrollView
 } from 'react-native';
 
 class PhoneDetails extends Component {
     constructor(props) {
         super(props);
 
-        BackHandler.addEventListener('hardwareBackPress', () => {
-            if (this.props.navigator) {
-                this.props.navigator.pop();
-            }
-            return true;
-        });
-
         this.state = {
-            name: ''
-        };
-
-        if (props) {
-            this.state = {
-                id: props.navigation.state.params.data.id,
-                name: props.navigation.state.params.data.name,
-                phone: props.navigation.state.params.data.phone,
-                street: props.navigation.state.params.data.street,
-                house: props.navigation.state.params.data.house,
-                apt: props.navigation.state.params.data.apt,
-                index: props.navigation.state.params.data.index
-            };
+            id: props.navigation.state.params.data.id,
+            name: props.navigation.state.params.data.name,
+            phone: props.navigation.state.params.data.phone,
+            street: props.navigation.state.params.data.street,
+            house: props.navigation.state.params.data.house,
+            apt: props.navigation.state.params.data.apt,
+            index: props.navigation.state.params.data.index
         }
     }
 
@@ -170,7 +156,7 @@ class PhoneDetails extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
+        )
     }
 }
 

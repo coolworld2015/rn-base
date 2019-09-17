@@ -23,7 +23,7 @@ class UserDetails extends Component {
             pass: appConfig.users.item.pass,
             description: appConfig.users.item.description,
             showProgress: false
-        };
+        }
     }
 
     updateItem() {
@@ -56,23 +56,23 @@ class UserDetails extends Component {
             .then((response) => response.json())
             .then((responseData) => {
                 if (responseData.pass) {
-                    this.props.navigation.navigate('Users', {refresh: true});
+                    this.props.navigation.navigate('Users', {refresh: true})
                 } else {
                     this.setState({
                         badCredentials: true
-                    });
+                    })
                 }
             })
             .catch((error) => {
                 this.setState({
                     serverError: true
-                });
+                })
             })
             .finally(() => {
                 this.setState({
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     deleteItemDialog() {
@@ -87,7 +87,7 @@ class UserDetails extends Component {
                     }
                 }
             ]
-        );
+        )
     }
 
     deleteItem() {
@@ -110,23 +110,23 @@ class UserDetails extends Component {
             .then((response) => response.json())
             .then((responseData) => {
                 if (responseData.text) {
-                    this.props.navigation.navigate('Users', {refresh: true});
+                    this.props.navigation.navigate('Users', {refresh: true})
                 } else {
                     this.setState({
                         badCredentials: true
-                    });
+                    })
                 }
             })
             .catch((error) => {
                 this.setState({
                     serverError: true
-                });
+                })
             })
             .finally(() => {
                 this.setState({
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     goBack() {
@@ -139,13 +139,13 @@ class UserDetails extends Component {
         if (this.state.serverError) {
             errorCtrl = <Text style={styles.error}>
                 Something went wrong.
-            </Text>;
+            </Text>
         }
 
         if (this.state.invalidValue) {
             validCtrl = <Text style={styles.error}>
                 Value required - please provide.
-            </Text>;
+            </Text>
         }
 
         return (
@@ -239,7 +239,7 @@ class UserDetails extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
+        )
     }
 }
 

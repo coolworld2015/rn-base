@@ -62,19 +62,19 @@ class Phones extends Component {
                     resultsCount: responseData.length,
                     responseData: responseData,
                     filteredItems: responseData,
-                    refreshing: false
-                });
+                    refreshing: false,
+                })
             })
             .catch((error) => {
                 this.setState({
                     serverError: true
-                });
+                })
             })
             .finally(() => {
                 this.setState({
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     sort(a, b) {
@@ -107,7 +107,7 @@ class Phones extends Component {
                     </Text>
                 </View>
             </TouchableHighlight>
-        );
+        )
     }
 
     refreshData(event) {
@@ -143,7 +143,7 @@ class Phones extends Component {
                 dataSource: this.state.dataSource.cloneWithRows(items),
                 recordsCount: recordsCount + 10,
                 positionY: positionY + 500
-            });
+            })
         }
     }
 
@@ -160,10 +160,6 @@ class Phones extends Component {
             filteredItems: items,
             searchQuery: text
         });
-    }
-
-    goBack() {
-        this.props.navigator.pop();
     }
 
     clearSearchQuery() {
@@ -187,7 +183,7 @@ class Phones extends Component {
         if (this.state.serverError) {
             errorCtrl = <Text style={styles.error}>
                 Something went wrong.
-            </Text>;
+            </Text>
         }
 
         if (this.state.showProgress) {
@@ -197,7 +193,7 @@ class Phones extends Component {
                     color="darkblue"
                     animating={true}
                 />
-            </View>;
+            </View>
         }
 
         if (this.state.searchQuery.length > 0) {
@@ -208,7 +204,7 @@ class Phones extends Component {
                     width: 20,
                     marginTop: 10
                 }}
-            />;
+            />
         }
 
         return (
@@ -285,7 +281,7 @@ class Phones extends Component {
                     </Text>
                 </View>
             </View>
-        );
+        )
     }
 }
 

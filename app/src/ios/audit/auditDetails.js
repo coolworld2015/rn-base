@@ -7,36 +7,20 @@ import {
     View,
     TouchableHighlight,
     TouchableWithoutFeedback,
-    ScrollView,
-    BackHandler
+    ScrollView
 } from 'react-native';
 
 class AuditDetails extends Component {
     constructor(props) {
         super(props);
 
-        BackHandler.addEventListener('hardwareBackPress', () => {
-            if (this.props.navigator) {
-                this.props.navigator.pop();
-            }
-            return true;
-        });
-
         this.state = {
-            name: ''
-        };
-
-        if (props) {
-            let ip = appConfig.audit.item.ip.split(':');
-
-            this.state = {
-                id: appConfig.audit.item.id,
-                name: appConfig.audit.item.name,
-                date: appConfig.audit.item.date,
-                ip: ip[3],
-                description: appConfig.audit.item.description,
-                showProgress: false
-            };
+            id: appConfig.audit.item.id,
+            name: appConfig.audit.item.name,
+            date: appConfig.audit.item.date,
+            ip: appConfig.audit.item.ip.split(':')[3],
+            description: appConfig.audit.item.description,
+            showProgress: false
         }
     }
 
@@ -136,7 +120,7 @@ class AuditDetails extends Component {
                     </View>
                 </ScrollView>
             </View>
-        );
+        )
     }
 }
 

@@ -57,24 +57,23 @@ class Audit extends Component {
         })
             .then((response) => response.json())
             .then((responseData) => {
-
                 this.setState({
                     dataSource: this.state.dataSource.cloneWithRows(responseData.slice(0, 15)),
                     resultsCount: responseData.length,
                     responseData: responseData,
-                    filteredItems: responseData
+                    filteredItems: responseData,
                 });
             })
             .catch((error) => {
                 this.setState({
                     serverError: true
-                });
+                })
             })
             .finally(() => {
                 this.setState({
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     showDetails(rowData) {
@@ -93,7 +92,7 @@ class Audit extends Component {
                     </Text>
                 </View>
             </TouchableHighlight>
-        );
+        )
     }
 
     refreshData(event) {
@@ -107,7 +106,7 @@ class Audit extends Component {
                 resultsCount: 0,
                 recordsCount: 25,
                 positionY: 0,
-                searchQuery: ''
+                searchQuery: '',
             });
 
             setTimeout(() => {
@@ -129,7 +128,7 @@ class Audit extends Component {
                 dataSource: this.state.dataSource.cloneWithRows(items),
                 recordsCount: recordsCount + 10,
                 positionY: positionY + 500
-            });
+            })
         }
     }
 
@@ -145,11 +144,7 @@ class Audit extends Component {
             resultsCount: items.length,
             filteredItems: items,
             searchQuery: text
-        });
-    }
-
-    goBack() {
-        this.props.navigator.pop();
+        })
     }
 
     clearSearchQuery() {
@@ -183,7 +178,7 @@ class Audit extends Component {
                     color="darkblue"
                     animating={true}
                 />
-            </View>;
+            </View>
         }
 
         if (this.state.searchQuery.length > 0) {
@@ -194,7 +189,7 @@ class Audit extends Component {
                     width: 20,
                     marginTop: 10
                 }}
-            />;
+            />
         }
 
         return (
@@ -269,7 +264,7 @@ class Audit extends Component {
                     </Text>
                 </View>
             </View>
-        );
+        )
     }
 }
 

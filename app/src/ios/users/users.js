@@ -34,7 +34,7 @@ class Users extends Component {
             recordsCount: 25,
             positionY: 0,
             searchQuery: ''
-        };
+        }
     }
 
     componentDidMount() {

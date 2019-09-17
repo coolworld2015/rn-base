@@ -10,7 +10,6 @@ import {
     ScrollView,
     ActivityIndicator,
     TextInput,
-    BackHandler,
     Image,
     Dimensions,
     RefreshControl
@@ -22,13 +21,6 @@ class SearchResults extends Component {
     constructor(props) {
         super(props);
 
-        BackHandler.addEventListener('hardwareBackPress', () => {
-            if (this.props.navigator) {
-                this.props.navigator.pop();
-            }
-            return true;
-        });
-
         let ds = new ListView.DataSource({
             rowHasChanged: (r1, r2) => r1 !== r2
         });
@@ -37,18 +29,16 @@ class SearchResults extends Component {
             dataSource: ds.cloneWithRows([])
         };
 
-        if (props) {
-            this.state = {
-                dataSource: ds.cloneWithRows([]),
-                searchQueryHttp: props.navigation.state.params.data.searchQuery,
-                searchType: props.navigation.state.params.data.searchType,
-                showProgress: true,
-                resultsCount: 0,
-                recordsCount: 15,
-                positionY: 0,
-                searchQuery: '',
-                refreshing: false
-            };
+        this.state = {
+            dataSource: ds.cloneWithRows([]),
+            searchQueryHttp: props.navigation.state.params.data.searchQuery,
+            searchType: props.navigation.state.params.data.searchType,
+            showProgress: true,
+            resultsCount: 0,
+            recordsCount: 15,
+            positionY: 0,
+            searchQuery: '',
+            refreshing: false
         }
 
         this.getItems();
@@ -86,19 +76,18 @@ class SearchResults extends Component {
                     responseData: responseData.sort(this.sort),
                     filteredItems: responseData.sort(this.sort),
                     refreshing: false
-                });
-
+                })
             })
             .catch((error) => {
                 this.setState({
                     serverError: true
-                });
+                })
             })
             .finally(() => {
                 this.setState({
                     showProgress: false
-                });
-            });
+                })
+            })
     }
 
     sort(a, b) {
@@ -127,7 +116,7 @@ class SearchResults extends Component {
                     </Text>
                 </View>
             </TouchableHighlight>
-        );
+        )
     }
 
     refreshData(event) {
@@ -145,7 +134,7 @@ class SearchResults extends Component {
             });
 
             setTimeout(() => {
-                this.findItems();
+                this.getItems();
             }, 300);
         }
 
@@ -182,15 +171,6 @@ class SearchResults extends Component {
         });
     }
 
-    refreshDataAndroid() {
-        this.setState({
-            showProgress: true,
-            resultsCount: 0
-        });
-
-        this.getItems();
-    }
-
     goBack() {
         this.props.navigation.goBack();
     }
@@ -203,7 +183,7 @@ class SearchResults extends Component {
             positionY: 0,
             recordsCount: 15,
             searchQuery: ''
-        });
+        })
     }
 
     render() {
@@ -212,7 +192,7 @@ class SearchResults extends Component {
         if (this.state.serverError) {
             errorCtrl = <Text style={styles.error}>
                 Something went wrong.
-            </Text>;
+            </Text>
         }
 
         if (this.state.showProgress) {
@@ -222,7 +202,7 @@ class SearchResults extends Component {
                     color="darkblue"
                     animating={true}
                 />
-            </View>;
+            </View>
         }
 
         if (this.state.searchQuery.length > 0) {
@@ -233,7 +213,7 @@ class SearchResults extends Component {
                     width: 20,
                     marginTop: 10
                 }}
-            />;
+            />
         }
 
         return (
@@ -294,15 +274,7 @@ class SearchResults extends Component {
                 {loader}
 
                 <ScrollView
-                    onScroll={this.refreshData.bind(this)}
-                    scrollEventThrottle={16}
-                    refreshControl={
-                        <RefreshControl
-                            enabled={true}
-                            refreshing={this.state.refreshing}
-                            onRefresh={this.refreshDataAndroid.bind(this)}
-                        />
-                    }>
+                    onScroll={this.refreshData.bind(this)} scrollEventThrottle={16}>
                     <ListView
                         enableEmptySections={true}
                         dataSource={this.state.dataSource}
@@ -316,7 +288,7 @@ class SearchResults extends Component {
                     </Text>
                 </View>
             </View>
-        );
+        )
     }
 }
 
