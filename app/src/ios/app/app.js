@@ -3,7 +3,7 @@
 import React, {Component} from 'react';
 
 import Login from './login';
-import AppContainer from './navigation';
+import AppContainer from './appContainer';
 
 console.disableYellowBox = true;
 
