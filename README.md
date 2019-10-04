@@ -58,6 +58,8 @@ remove node_modules
 npm i
 react-native link react-native-gesture-handler
 -------------------------------------------------------------------------------------------------
+npm start -- --reset-cache
+-------------------------------------------------------------------------------------------------
 cd ios && pod install && cd ..
 -------------------------------------------------------------------------------------------------
 APK -> android/app/build.gradle -> def enableSeparateBuildPerCPUArchitecture = true
