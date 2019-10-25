@@ -215,6 +215,7 @@ class UserDetails extends Component {
                             })}
                             style={styles.formInputBold}
                             value={this.state.name}
+                            placeholderTextColor='gray'
                             placeholder='Login'>
                         </TextInput>
 
@@ -226,6 +227,7 @@ class UserDetails extends Component {
                             })}
                             style={styles.formInput}
                             value={this.state.pass}
+                            placeholderTextColor='gray'
                             placeholder='Password'>
                         </TextInput>
 
@@ -238,6 +240,7 @@ class UserDetails extends Component {
                             })}
                             style={styles.formInputArea}
                             value={this.state.description}
+                            placeholderTextColor='gray'
                             placeholder='Description'>
                         </TextInput>
 

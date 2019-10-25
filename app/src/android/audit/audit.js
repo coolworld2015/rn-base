@@ -229,7 +229,8 @@ class Audit extends Component {
                             onChangeText={this.onChangeText.bind(this)}
                             style={styles.searchLarge}
                             value={this.state.searchQuery}
-                            placeholder="Search here">
+                            placeholderTextColor='gray'
+                            placeholder='Search here'>
                         </TextInput>
                     </View>
                     <View style={styles.searchSmall}>
@@ -298,6 +299,7 @@ const styles = StyleSheet.create({
         borderWidth: 3,
         borderColor: 'white',
         borderRadius: 0,
+        color: 'black',
         width: Dimensions.get('window').width * .90
     },
     searchSmall: {

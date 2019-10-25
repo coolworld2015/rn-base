@@ -146,6 +146,7 @@ class UserAdd extends Component {
                             })}
                             style={styles.formInput}
                             value={this.state.name}
+                            placeholderTextColor='gray'
                             placeholder='Login'>
                         </TextInput>
 
@@ -157,6 +158,7 @@ class UserAdd extends Component {
                             })}
                             style={styles.formInput}
                             value={this.state.pass}
+                            placeholderTextColor='gray'
                             placeholder='Password'>
                         </TextInput>
 
@@ -169,6 +171,7 @@ class UserAdd extends Component {
                             })}
                             style={styles.formInputArea}
                             value={this.state.description}
+                            placeholderTextColor='gray'
                             placeholder='Description'>
                         </TextInput>
 

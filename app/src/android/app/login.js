@@ -115,6 +115,7 @@ class Login extends Component {
                         style={styles.loginInput}
                         value={this.state.username}
                         editable={!this.state.showProgress}
+                        placeholderTextColor='gray'
                         placeholder='Login'>
                     </TextInput>
 
@@ -127,6 +128,7 @@ class Login extends Component {
                         style={styles.loginInput}
                         value={this.state.password}
                         editable={!this.state.showProgress}
+                        placeholderTextColor='gray'
                         placeholder='Password'
                         secureTextEntry={true}>
                     </TextInput>
